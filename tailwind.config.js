@@ -1,9 +1,12 @@
 /** @type {import('tailwindcss').Config} */
+const preset = require('nativewind/preset');
+
 module.exports = {
-  content: ["./app/**/*.{js,jsx,ts,tsx}", "./components/**/*.{js,jsx,ts,tsx}"],
-  presets: [require("nativewind/preset")],
-  theme: {
-    extend: {},
-  },
+  presets: [preset],
+  content: [
+    "./app/**/*.{js,ts,tsx}",
+    "./src/**/*.{js,ts,tsx}" // src 하위 컴포넌트 포함
+  ],
+  theme: { extend: {} },
   plugins: [],
 };
