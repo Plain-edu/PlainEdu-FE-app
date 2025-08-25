@@ -6,7 +6,7 @@ export default function LoginScreen() {
 
   const handleLogin = (provider: string) => {
     // 여기에 소셜 로그인 로직 추가
-    router.push({ pathname: '/features/login/terms' }); // 예시: 다음 단계로 이동
+    router.push({ pathname: '/features/login/terms' });
   };
 
   return (
