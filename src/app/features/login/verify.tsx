@@ -1,7 +1,9 @@
-import { View, Text, Pressable, TextInput, Image, TouchableOpacity } from 'react-native';
-import { useRouter } from 'expo-router';
-import { useState } from 'react';
+import { CarrierBottomSheet } from "@/src/components/CarrierBottomSheet";
 import { LinearGradient } from 'expo-linear-gradient';
+import { useRouter } from 'expo-router';
+import { useRef, useState } from "react";
+import { Image, Pressable, Text, TextInput, View } from 'react-native';
+import { Modalize } from "react-native-modalize";
 
 export default function VerifyScreen() {
   const router = useRouter();
@@ -10,6 +12,17 @@ export default function VerifyScreen() {
   const [gender, setGender] = useState('');
   const [phone, setPhone] = useState('');
   const [carrier, setCarrier] = useState('');
+
+  const modalizeRef = useRef<Modalize>(null);
+
+  const handleOpenCarrierSheet = () => {
+    modalizeRef.current?.open();
+  };
+
+  const handleSelectCarrier = (selected: string) => {
+    setCarrier(selected);
+    modalizeRef.current?.close();
+  };
 
   return (
     <View className="flex-1 bg-white px-[32px] pt-[61px]">
@@ -83,14 +96,19 @@ export default function VerifyScreen() {
         onChangeText={setPhone}
       />
 
-      {/* 통신사 선택 (단순 입력) */}
-      <TextInput
-        placeholder="통신사 선택"
-        placeholderTextColor="#3D4D5C"
-        className="w-full h-[48px] rounded-[12px] border-[2.5px] border-[#F0F2F5] px-4"
-        value={carrier}
-        onChangeText={setCarrier}
-      />
+      {/* 통신사 선택 (BottomSheet 연결) */}
+      <Pressable
+        onPress={handleOpenCarrierSheet}
+        className="w-full h-[48px] rounded-[12px] border-[2.5px] border-[#F0F2F5] px-4 justify-center mb-[12px]"
+      >
+        <Text
+          className={`text-base ${
+            carrier ? "text-black" : "text-[#3D4D5C]"
+          }`}
+        >
+          {carrier || "통신사 선택"}
+        </Text>
+      </Pressable>
 
       {/* 인증번호 전송 버튼 */}
         <Pressable
@@ -136,6 +154,7 @@ export default function VerifyScreen() {
                 </Text>
             </LinearGradient>
         </Pressable>
+        <CarrierBottomSheet ref={modalizeRef} onSelect={handleSelectCarrier} />
     </View>
   );
 }
