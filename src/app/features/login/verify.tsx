@@ -113,7 +113,7 @@ export default function VerifyScreen() {
       {/* 인증번호 전송 버튼 */}
         <Pressable
             onPress={() => {
-                // 인증번호 전송 로직
+              router.push("/features/login/verify-code"); // 인증번호 전송 로직
             }}
             style={{
                 borderRadius: 24,
