@@ -64,7 +64,12 @@ export default function VerifyCodeScreen() {
 
       <View className="flex-row items-center mt-4 mb-8">
         {/* 타이머 */}
-        <Text className="text-xs font-bold text-gray-800 mr-5">{formatTime(timer)}</Text>
+        <Text
+          className="text-xs font-bold text-gray-800 mr-5"
+          style={{ width: 40, textAlign: "center" }}
+        >
+          {formatTime(timer)}
+        </Text>
 
         {/* 인증번호 입력칸 (4자리) */}
         <View className="flex-row">
@@ -122,6 +127,7 @@ export default function VerifyCodeScreen() {
         {/* 다음 버튼 */}
         <Pressable
             onPress={() => {
+            router.push("/features/login/profile-setting");
             const inputCode = code.join("");
             console.log("입력된 코드:", inputCode);
             // TODO: 인증번호 검증 로직 추가
