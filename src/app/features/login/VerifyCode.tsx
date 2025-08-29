@@ -127,7 +127,7 @@ export default function VerifyCodeScreen() {
         {/* 다음 버튼 */}
         <Pressable
             onPress={() => {
-            router.push("/features/login/profile-setting");
+            router.push("/features/login/ProfileSetting");
             const inputCode = code.join("");
             console.log("입력된 코드:", inputCode);
             // TODO: 인증번호 검증 로직 추가
