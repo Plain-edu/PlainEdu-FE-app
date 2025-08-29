@@ -1,3 +1,8 @@
+<<<<<<< HEAD
+node_modules/
+.expo/
+expo-env.d.ts
+=======
 # Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
 
 # dependencies
@@ -37,3 +42,4 @@ yarn-error.*
 *.tsbuildinfo
 
 app-example
+>>>>>>> 7d11a4bde805423a598f3af456745a173a106c09

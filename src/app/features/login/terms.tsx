@@ -1,9 +1,9 @@
-import { View, Text, Pressable, Image } from 'react-native';
-import { useRouter } from 'expo-router';
-import { useState } from 'react';
+import { Feather } from '@expo/vector-icons';
 import MaskedView from '@react-native-masked-view/masked-view';
 import { LinearGradient } from 'expo-linear-gradient';
-import { Feather } from '@expo/vector-icons';
+import { useRouter } from 'expo-router';
+import { useState } from 'react';
+import { Image, Pressable, Text, View } from 'react-native';
 
 export default function TermsScreen() {
   const router = useRouter();
@@ -32,7 +32,7 @@ export default function TermsScreen() {
 
   const handleNext = () => {
     if (agreements.service && agreements.privacy) {
-      router.push('/login/verify');
+      router.push({ pathname: '/features/login/verify' });
     } else {
       alert('필수 약관에 동의해주세요.');
     }
