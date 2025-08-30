@@ -10,7 +10,7 @@ type MainpageBottomBarProps = {
 
 export function MainpageBottomBar({ activeTab, setActiveTab }: MainpageBottomBarProps) {
   return (
-    <View className="flex-row justify-around border-t border-gray-200 py-3 bg-white">
+    <View className="flex-row justify-around border-t border-gray-200 pt-3 bg-white">
       {/* 홈 */}
       <Pressable onPress={() => setActiveTab("home")} className="items-center">
         <Image source={require("../../assets/images/home-icon.png")} style={styles.icon} resizeMode="contain" />
