@@ -1,6 +1,23 @@
+// screens/MainScreen.tsx
 import React, { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { AppHeader } from "../../../components/MainpageHeader";
+import { ExchangeTab } from "./tabs/ExchangeTab";
+import { InvestTab } from "./tabs/InvestTab";
+import { QuizTab } from "./tabs/QuizTab";
+
+const QUIZ_CARDS = [
+  {
+    id: "quiz-1",
+    title: "금융 퀴즈",
+    description: "주식 투자에 꼭 필요한 금융 개념과 원리를 쉽고 빠르게!",
+    buttonText: "퀴즈 풀기",
+    onPress: () => console.log("퀴즈 풀기 눌림"),
+  },
+  // 추후 여기에 새 카드를 추가하면 자동으로 카로셀에 표시됩니다.
+  // { id: "quiz-2", title: "...", description: "...", buttonText: "...", onPress: ... },
+  // { id: "quiz-3", title: "...", description: "...", buttonText: "...", onPress: ... },
+];
 
 export function MainScreen() {
   const [activeTopTab, setActiveTopTab] = useState<"quiz" | "invest" | "exchange">("quiz");
@@ -8,29 +25,11 @@ export function MainScreen() {
   const renderContent = () => {
     switch (activeTopTab) {
       case "quiz":
-        return (
-          <View className="p-4">
-            <Text className="text-xl font-bold text-blue-600">금융 퀴즈</Text>
-            <Text className="text-gray-600 mt-2">주식 투자에 꼭 필요한 금융 개념과 원리를 쉽고 빠르게!</Text>
-            <Pressable className="mt-4 bg-blue-500 rounded-xl px-6 py-3 items-center">
-              <Text className="text-white font-bold">퀴즈 풀기</Text>
-            </Pressable>
-          </View>
-        );
+        return <View style={{ marginTop: 12 }}><QuizTab /></View>;
       case "invest":
-        return (
-          <View className="p-4">
-            <Text className="text-xl font-bold text-green-600">투자 화면</Text>
-            <Text className="text-gray-600 mt-2">투자 관련 내용이 들어갑니다.</Text>
-          </View>
-        );
+        return <InvestTab />;
       case "exchange":
-        return (
-          <View className="p-4">
-            <Text className="text-xl font-bold text-purple-600">교환소 화면</Text>
-            <Text className="text-gray-600 mt-2">포인트 교환소 화면입니다.</Text>
-          </View>
-        );
+        return <ExchangeTab />;
     }
   };
 
@@ -82,7 +81,7 @@ export function MainScreen() {
       </View>
 
       {/* 탭별 컨텐츠 */}
-      <View className="flex-1">{renderContent()}</View>
+      <View style={{ flex: 1 }}>{renderContent()}</View>
     </View>
   );
 }
@@ -102,5 +101,22 @@ const styles = StyleSheet.create({
   },
   bold: {
     fontWeight: "700",
+  },
+  center: {
+    flex: 1,
+    alignItems: "center",
+    justifyContent: "center",
+    paddingHorizontal: 24,
+  },
+  placeholderTitle: {
+    fontSize: 20,
+    fontWeight: "700",
+    color: "#121217",
+    marginBottom: 8,
+  },
+  placeholderDesc: {
+    fontSize: 14,
+    color: "#8E8E93",
+    textAlign: "center",
   },
 });
