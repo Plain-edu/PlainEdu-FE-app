@@ -1,18 +1,41 @@
 // screens/tabs/InvestTab.tsx
 import React from "react";
-import { StyleSheet, Text, View } from "react-native";
+import { Image, Text, View } from "react-native";
+import { MarketIndexCarousel } from "../../../../components/InvestTabCard";
+
+type MyMarketItem = { changePct: number };
+const FALLBACK: MyMarketItem = { changePct: 9.23 };
 
 export function InvestTab() {
+  const sign = FALLBACK.changePct >= 0 ? "+" : "";
+  const changeColor = FALLBACK.changePct >= 0 ? "#FF3B30" : "#1C6EFF";
+
   return (
-    <View style={styles.center}>
-      <Text style={styles.title}>투자 화면</Text>
-      <Text style={styles.desc}>투자 관련 내용이 들어갑니다.</Text>
+    <View className="items-center">
+      <MarketIndexCarousel />
+
+      {/* 보유 총 자산 라인 */}
+      <View className="mt-3 w-11/12 flex-row items-center justify-between px-5">
+        <View className="flex-row items-center gap-3">
+          <Text
+            style={{ fontFamily: "Pretendard" }}
+            className="font-bold text-[20px] leading-[25px] text-[#121217]"
+          >
+            보유 총 자산
+          </Text>
+            <Text
+              style={{ color: changeColor, fontFamily: "Pretendard" }}
+              className="font-bold text-[16px] leading-5 mr-2"
+            >
+              {`${sign}${FALLBACK.changePct.toFixed(2)}%`}
+            </Text>
+        </View>
+          <Image
+            source={require("@/assets/images/go-next-icon.png")}
+            className="w-[18px] h-[18px] mr-1"
+            resizeMode="contain"
+          />
+      </View>
     </View>
   );
 }
-
-const styles = StyleSheet.create({
-  center: { flex: 1, alignItems: "center", justifyContent: "center", paddingHorizontal: 24 },
-  title: { fontSize: 20, fontWeight: "700", color: "#121217", marginBottom: 8 },
-  desc: { fontSize: 14, color: "#8E8E93", textAlign: "center" },
-});
