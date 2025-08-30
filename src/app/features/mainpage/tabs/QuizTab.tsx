@@ -2,7 +2,7 @@ import { TodayStudyCard } from "@/src/components/TodayStudyCard";
 import React from "react";
 import { Dimensions, FlatList, View } from "react-native";
 import { AttendanceCheck } from "../../../../components/AttendanceCheck";
-import { QuizCard } from "../../../../components/MainpageCard";
+import { QuizCard } from "../../../../components/QuizTabCard";
 
 const QUIZ_CARDS = [
   {
