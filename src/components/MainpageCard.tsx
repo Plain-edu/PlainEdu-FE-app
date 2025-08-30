@@ -57,19 +57,19 @@ export function QuizCard({ title, description, buttonText, onPress, style }: Pro
 
 const styles = StyleSheet.create({
   card: {
-    width: 360,
-    height: 250,
+    width: 350,
+    height: 230,
     backgroundColor: "#FFFFFF",
     borderRadius: 28,
     paddingHorizontal: 24,
     paddingTop: 28,
-    paddingBottom: 20,
-    marginBottom: 20,
+    paddingBottom: 18,
+    marginBottom: 25,
     alignSelf: "center",
     shadowColor: "#000",
     shadowOpacity: 0.08,
     shadowRadius: 16,
-    shadowOffset: { width: 0, height: 8 },
+    shadowOffset: { width: 0, height: 6 },
     elevation: 6,
   },
 
@@ -77,9 +77,8 @@ const styles = StyleSheet.create({
     fontFamily: "Pretendard",
     fontStyle: "normal",
     fontWeight: "700",
-    fontSize: 27,
+    fontSize: 24,
     lineHeight: 25,
-    paddingTop: 15,
   },
 
   descBlock: {

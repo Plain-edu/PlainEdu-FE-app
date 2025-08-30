@@ -1,4 +1,3 @@
-// screens/MainScreen.tsx
 import React, { useState } from "react";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 import { AppHeader } from "../../../components/MainpageHeader";
@@ -34,11 +33,11 @@ export function MainScreen() {
   };
 
   return (
-    <View className="flex-1 bg-white">
+    <View className="flex-1 bg-white -mt-[30px]">
       <AppHeader points={10000} />
 
       {/* 상단 탭 */}
-      <View className="flex-row items-center justify-start mt-4 py-3 px-4">
+      <View className="flex-row items-center justify-start pt-9 pb-5 px-4">
         <Pressable onPress={() => setActiveTopTab("quiz")}>
           <Text
             style={[

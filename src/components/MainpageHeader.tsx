@@ -8,7 +8,7 @@ type AppHeaderProps = {
 
 export function AppHeader({ points = 0, onPressNotification }: AppHeaderProps) {
   return (
-    <View className="flex-row items-center justify-between px-4 py-3">
+    <View className="flex-row items-center justify-between px-4">
       {/* 로고 */}
       <Image
         source={require("@/assets/images/logo-text-blue.png")}

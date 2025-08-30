@@ -1,3 +1,4 @@
+import { TodayStudyCard } from "@/src/components/TodayStudyCard";
 import React from "react";
 import { Dimensions, FlatList, View } from "react-native";
 import { AttendanceCheck } from "../../../../components/AttendanceCheck";
@@ -45,8 +46,15 @@ export function QuizTab() {
       )}
     />
     <View style={{ alignItems: 'center' }}>
-      <AttendanceCheck style={{ marginTop: 16, marginBottom: 12, alignSelf: 'center' }} />
+      <AttendanceCheck style={{ marginTop: 10, marginBottom: 12, alignSelf: 'center' }} />
     </View>
+    <TodayStudyCard
+        answered={0}
+        total={0}
+        accuracy={75}
+        rankLabel="상위 10%"
+        style={{ marginTop: 12 }}
+    />
     </>
   );
 }
