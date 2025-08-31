@@ -1,5 +1,6 @@
+import AssetBottomSheet, { type AssetBottomSheetRef } from "@/src/components/AssetBottomSheet";
 import { MOCK_TOP10, TAB_LABELS, type TabKey, type Top10Item } from "@/src/constants/InvestCardMockData";
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import { Image, Pressable, ScrollView, Text, View } from "react-native";
 import { MarketIndexCarousel } from "../../../../components/InvestTabCard";
 
@@ -12,7 +13,11 @@ export function InvestTab() {
   const [active, setActive] = useState<TabKey>("marketcap");
   const list: Top10Item[] = MOCK_TOP10[active];
 
+  const assetSheetRef = useRef<AssetBottomSheetRef>(null);
+  const openAssetSheet = () => assetSheetRef.current?.open();
+
   return (
+    <>
     <ScrollView className="w-full" contentContainerStyle={{ alignItems: "center", paddingBottom: 24 }}>
       <MarketIndexCarousel />
 
@@ -32,11 +37,13 @@ export function InvestTab() {
               {`${sign}${FALLBACK.changePct.toFixed(2)}%`}
             </Text>
         </View>
+        <Pressable onPress={openAssetSheet} hitSlop={8}>
           <Image
             source={require("@/assets/images/go-next-icon.png")}
             className="w-[18px] h-[18px] mr-1"
             resizeMode="contain"
           />
+        </Pressable>
       </View>
 
     {/* 탭바: TOP 10 포함 */}
@@ -63,6 +70,18 @@ export function InvestTab() {
       {/* 탭별 카드 리스트 */}
       <Top10CardList items={list} className="my-6" />
     </ScrollView>
+
+    <AssetBottomSheet
+      ref={assetSheetRef}
+      title="보유 총 자산"
+      total={10000}
+      changePct={9.23}
+    >
+      {/* 여기 안에 도넛 차트/보유종목 리스트 등 원하는 컴포넌트 삽입 */}
+      {/* <HoldingsDonut ... /> */}
+      {/* <HoldingsList ... /> */}
+    </AssetBottomSheet>
+    </>
   );
 }
 
