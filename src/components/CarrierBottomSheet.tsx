@@ -11,7 +11,20 @@ const carriers = ["SKT", "KT", "LG U+", "SKT 알뜰폰", "KT 알뜰폰", "LG U+ 
 export const CarrierBottomSheet = forwardRef<Modalize, CarrierBottomSheetProps>(
   ({ onSelect }, ref) => {
     return (
-      <Modalize ref={ref} adjustToContentHeight>
+      <Modalize 
+      ref={ref} 
+      adjustToContentHeight
+      withHandle
+      handlePosition="inside"
+      handleStyle={{ backgroundColor: "#F0F2F5", width: 92, marginTop: 3 }}
+      childrenStyle={{ paddingTop: 10 }}
+      modalStyle={{
+        borderTopLeftRadius: 24,
+        borderTopRightRadius: 24,
+        overflow: 'hidden',
+        backgroundColor: 'white',
+      }}
+      >
         <View className="bg-white p-4 items-center">
           {carriers.map((c, index) => (
             <TouchableOpacity
@@ -32,7 +45,7 @@ export const CarrierBottomSheet = forwardRef<Modalize, CarrierBottomSheetProps>(
                   fontFamily: "Pretendard",
                   fontWeight: "500",
                   fontSize: 18,
-                  lineHeight: 28,
+                  lineHeight: 25,
                   color: "#3D4D5C",
                 }}
               >
