@@ -1,7 +1,7 @@
 import { CarrierBottomSheet } from "@/src/components/CarrierBottomSheet";
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Image, Pressable, Text, TextInput, View } from 'react-native';
 import { Modalize } from "react-native-modalize";
 
