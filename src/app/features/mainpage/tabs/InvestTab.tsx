@@ -1,5 +1,6 @@
 import AssetBottomSheet, { type AssetBottomSheetRef } from "@/src/components/AssetBottomSheet";
 import { MOCK_TOP10, TAB_LABELS, type TabKey, type Top10Item } from "@/src/constants/InvestCardMockData";
+import { router } from "expo-router";
 import React, { useRef, useState } from "react";
 import { Image, Pressable, ScrollView, Text, View } from "react-native";
 import { MarketIndexCarousel } from "../../../../components/InvestTabCard";
@@ -77,9 +78,6 @@ export function InvestTab() {
       total={10000}
       changePct={9.23}
     >
-      {/* 여기 안에 도넛 차트/보유종목 리스트 등 원하는 컴포넌트 삽입 */}
-      {/* <HoldingsDonut ... /> */}
-      {/* <HoldingsList ... /> */}
     </AssetBottomSheet>
     </>
   );
@@ -112,7 +110,20 @@ function Row({ item, isLast }: { item: Top10Item; isLast: boolean }) {
 
   return (
     <>
-      <View className="px-7 py-4 flex-row items-center justify-between">
+      <Pressable
+        className="px-7 py-4 flex-row items-center justify-between"
+        onPress={() =>
+          router.push({
+            pathname: "/features/mainpage/InvestDetails",
+            params: {
+              id: String(item.rank),
+              name: item.name,
+              price: String(item.price),
+              changePct: String(item.changePct),
+            },
+          })
+        }
+      >
         <Text style={{ fontFamily: "Pretendard" }} className="w-6 text-[16px] font-extrabold text-[#121217]">
           {item.rank}
         </Text>
@@ -129,7 +140,7 @@ function Row({ item, isLast }: { item: Top10Item; isLast: boolean }) {
             {`${sign}${item.changePct.toFixed(2)}%`}
           </Text>
         </View>
-      </View>
+      </Pressable>
       {!isLast && <View className="mx-5 h-[1px] bg-[#EEF1F5]" />}
     </>
   );
