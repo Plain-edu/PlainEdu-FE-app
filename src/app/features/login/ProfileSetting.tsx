@@ -128,7 +128,7 @@ export default function ProfileSettingScreen() {
       {/* 완료 버튼 */}
       <Pressable
         onPress={() => {
-          router.push("/features/login/verify-code");
+          router.push("/features/mainpage/App");
         }}
         style={{
           borderRadius: 24,

@@ -1,7 +1,7 @@
 import { CarrierBottomSheet } from "@/src/components/CarrierBottomSheet";
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
-import { useRef, useState } from "react";
+import React, { useRef, useState } from "react";
 import { Image, Pressable, Text, TextInput, View } from 'react-native';
 import { Modalize } from "react-native-modalize";
 
@@ -113,7 +113,7 @@ export default function VerifyScreen() {
       {/* 인증번호 전송 버튼 */}
         <Pressable
             onPress={() => {
-              router.push("/features/login/verify-code"); // 인증번호 전송 로직
+              router.push("/features/login/VerifyCode");
             }}
             style={{
                 borderRadius: 24,
