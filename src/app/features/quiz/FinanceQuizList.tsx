@@ -126,8 +126,9 @@ export default function QuizList() {
                 </View>
                 <Text className="text-[#121217] text-[17px] font-semibold mt-[7px] leading-6">{c.subtitle}</Text>
               </View>
-
-              <NextArrowButton onPress={() => { /* router.push(`/features/quiz/play?level=${c.id}`) */ }} />
+              <NextArrowButton 
+                onPress={() => router.push(`/features/quiz/${c.id}`)} 
+              />
             </View>
 
             {/* 진행도 */}
