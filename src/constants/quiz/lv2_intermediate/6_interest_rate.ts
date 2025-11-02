@@ -1,0 +1,91 @@
+import { QuizItem } from "../types";
+
+export const LV2_INTEREST_RATE: QuizItem[] = [
+  {
+    id: "lv2-rate-1",
+    level: "lv-2",
+    topic: "금리 변동",
+    topicIndex: 6,
+    type: "MULTI",
+    question: "금리가 오를 때 주식시장에 나타날 가능성이 큰 현상은?",
+    options: [
+      "기업 이자 비용 감소, 투자 증가",
+      "예·적금 매력 증가, 자금 유출",
+      "주가 급등, 소비 폭발",
+    ],
+    answer: "예·적금 매력 증가, 자금 유출",
+    explanation:
+      "금리 상승은 대출비용을 높여 기업 이익을 줄이고, 안전자산으로 자금이 이동해 주식시장이 위축됩니다.",
+  },
+  {
+    id: "lv2-rate-2",
+    level: "lv-2",
+    topic: "금리 변동",
+    topicIndex: 6,
+    type: "OX",
+    question: "금리가 내려가면 기업의 자금 조달이 쉬워지고 투자와 소비가 늘어나는 경향이 있다.",
+    answer: "O",
+    explanation: "금리가 낮아지면 이자 부담이 줄어 기업 투자와 개인 소비 모두 활발해집니다.",
+  },
+  {
+    id: "lv2-rate-3",
+    level: "lv-2",
+    topic: "금리 변동",
+    topicIndex: 6,
+    type: "MULTI",
+    question: "금리를 가장 알맞게 설명한 것은?",
+    options: [
+      "돈을 빌릴 때 내는 가격",
+      "주식 거래에 붙는 세금",
+      "환율 변동을 고정하는 수단",
+    ],
+    answer: "돈을 빌릴 때 내는 가격",
+    explanation:
+      "금리는 자금의 사용료로, 낮으면 자금 흐름이 원활하고 높으면 경제활동이 둔화됩니다.",
+  },
+  {
+    id: "lv2-rate-4",
+    level: "lv-2",
+    topic: "금리 변동",
+    topicIndex: 6,
+    type: "COLOR",
+    question: "단어와 뜻을 연결해보세요!",
+    leftItems: ["금리 상승", "금리 하락", "금리"],
+    rightItems: [
+      "기업 이익 감소, 주식시장 약세",
+      "투자·소비 확대, 주식시장 강세",
+      "돈 빌릴 때 지불하는 가격",
+    ],
+    answer: {
+      금리상승: "기업 이익 감소, 주식시장 약세",
+      금리하락: "투자·소비 확대, 주식시장 강세",
+      금리: "돈 빌릴 때 지불하는 가격",
+    },
+    explanation: "금리 방향은 자산시장과 실물경제 모두에 직접적인 영향을 미칩니다.",
+  },
+  {
+    id: "lv2-rate-5",
+    level: "lv-2",
+    topic: "금리 변동",
+    topicIndex: 6,
+    type: "OX",
+    question: "금리는 ‘경제 활동의 속도계’라고 불리며 높을수록 경제가 빨라진다.",
+    answer: "X",
+    explanation: "금리가 높으면 자금조달이 어려워져 경제활동이 둔화되고, 낮을수록 활발해집니다.",
+  },
+  {
+    id: "lv2-rate-6",
+    level: "lv-2",
+    topic: "금리 변동",
+    topicIndex: 6,
+    type: "MULTI",
+    question: "금리가 내려갈 때 투자자 심리가 좋아지는 이유는?",
+    options: [
+      "예금이자 증가로 안전자산 선호 강화",
+      "대출 이자 감소로 투자·소비 여력 확대",
+      "기업 이자 부담 증가로 이익 악화",
+    ],
+    answer: "대출 이자 감소로 투자·소비 여력 확대",
+    explanation: "금리 인하는 경제 전반에 훈풍을 불어넣어 주식시장에도 긍정적 영향을 줍니다.",
+  },
+];
