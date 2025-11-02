@@ -54,13 +54,13 @@ export default function LoginScreen() {
         </View>
 
         <View className="flex-row justify-center items-center space-x-2 mt-2">
-          <Pressable onPress={() => router.push({ pathname: '/features/login/find-id' })}>
+          <Pressable onPress={() => router.push({ pathname: '/features/login/FindId' })}>
             <Text className="font-normal text-[12px] leading-[23px] text-[#3D4D5C] text-center">
               아이디 찾기
             </Text>
           </Pressable>
           <Text className="text-[#3D4D5C] text-[12px] leading-[23px] mx-[4px]">|</Text>
-          <Pressable onPress={() => router.push({ pathname: '/features/login/find-password' })}>
+          <Pressable onPress={() => router.push({ pathname: '/features/login/FindPassword' })}>
             <Text className="font-normal text-[12px] leading-[23px] text-[#3D4D5C] text-center">
               비밀번호 찾기
             </Text>
