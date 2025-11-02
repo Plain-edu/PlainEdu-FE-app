@@ -169,14 +169,14 @@ const styles = StyleSheet.create({
   tagContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-between",
+    gap: 4,
     marginTop: 12,
   },
 
   tagChip: {
     backgroundColor: "#F0F2F5",
     borderRadius: 24,
-    width: 95,
+    width: 80,
     paddingVertical: 6,
     alignItems: "center",
     justifyContent: "center",
