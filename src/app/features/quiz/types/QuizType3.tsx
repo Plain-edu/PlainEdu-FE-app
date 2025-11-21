@@ -1,5 +1,5 @@
 import type { QuizColorMatch } from "@/src/constants/quiz/types";
-import React, { useState } from "react";
+import { useState } from "react";
 import {
   Image,
   Modal,
@@ -211,6 +211,9 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
                 borderTopRightRadius: 24,
                 paddingHorizontal: 24,
                 paddingVertical: 32,
+                width: "100%",
+                maxWidth: 480,
+                alignSelf: "center",
               }}
             >
               {isCorrect ? (

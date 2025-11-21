@@ -1,5 +1,4 @@
 import { useRouter } from "expo-router";
-import React from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 
 export default function QuizCompleteScreen() {
@@ -8,7 +7,7 @@ export default function QuizCompleteScreen() {
   return (
     <View className="flex-1 bg-white px-8 pt-12">
       {/* 상단 닫기 버튼 */}
-      <TouchableOpacity onPress={() => router.replace("/features/mainpage/MainScreen")} className="mb-6">
+      <TouchableOpacity onPress={() => router.replace("/features/mainpage/App")} className="mb-6">
         <Text className="text-2xl">✕</Text>
       </TouchableOpacity>
 
@@ -25,7 +24,7 @@ export default function QuizCompleteScreen() {
 
       {/* 하단 버튼 */}
       <TouchableOpacity
-        onPress={() => router.replace("/features/mainpage/MainScreen")}
+        onPress={() => router.replace("/features/mainpage/App")}
         activeOpacity={0.8}
         className="bg-blue-500 py-4 rounded-full mb-12 items-center"
         style={{

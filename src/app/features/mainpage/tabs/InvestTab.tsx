@@ -1,7 +1,7 @@
 import AssetBottomSheet, { type AssetBottomSheetRef } from "@/src/components/AssetBottomSheet";
 import { MOCK_TOP10, TAB_LABELS, type TabKey, type Top10Item } from "@/src/constants/InvestCardMockData";
 import { router } from "expo-router";
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Image, Pressable, ScrollView, Text, View } from "react-native";
 import { MarketIndexCarousel } from "../../../../components/InvestTabCard";
 
@@ -41,7 +41,8 @@ export function InvestTab() {
         <Pressable onPress={openAssetSheet} hitSlop={8}>
           <Image
             source={require("@/assets/images/go-next-icon.png")}
-            className="w-[18px] h-[18px] mr-1"
+            className="w-[18px] h-[18px]"
+            style={{ width: 20, height: 20 }}
             resizeMode="contain"
           />
         </Pressable>

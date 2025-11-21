@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { Image, Modal, ScrollView, Text, TouchableOpacity, View } from "react-native";
 import { Portal } from "react-native-paper";
 
@@ -165,6 +165,9 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
                   paddingHorizontal: 24,
                   paddingVertical: 32,
                   zIndex: 2,
+                  width: "100%",
+                  maxWidth: 480,
+                  alignSelf: "center",
                 }}
               >
                 {isCorrect ? (

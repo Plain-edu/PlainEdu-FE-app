@@ -1,7 +1,6 @@
 import MaskedView from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import React from "react";
 import { Image, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 type Params = {
@@ -33,6 +32,10 @@ function GradientNumber({ num }: { num: number }) {
             fontStyle: "normal",
             fontWeight: "700",
             fontSize: 35,
+            color: "#2A5DE8",
+            textShadowColor: "rgba(0, 122, 255, 0.25)",
+            textShadowOffset: { width: 0, height: 1 },
+            textShadowRadius: 4,
           }}
         >
           {num}
@@ -74,7 +77,7 @@ export default function QuizDetailList() {
           <Image source={require("@/assets/images/go-back-icon.png")} className="w-[35px] h-[35px]" />
         </TouchableOpacity>
         <View className="flex-row items-center mr-3">
-          <Image source={require("@/assets/images/silver-coin.png")} className="w-[26px] h-[26px] mr-2" />
+          <Image source={require("@/assets/images/silver-coin.png")} className="w-[26px] h-[26px] mr-2" style={{ width: 26, height: 26 }} />
           <Text className="text-[#3D4D5C] font-semibold text-[15px] leading-6">{points.toLocaleString()} p</Text>
         </View>
       </View>

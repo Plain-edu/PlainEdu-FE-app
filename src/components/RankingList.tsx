@@ -1,4 +1,3 @@
-import React from "react";
 import { FlatList, Image, Text, View } from "react-native";
 
 export type RankingItem = {
@@ -28,7 +27,11 @@ export function RankingList({ data, showRank = true, showScore = true }: Props) 
           )}
 
           {/* 아바타 */}
-          <Image source={item.avatar} className="w-14 h-14 rounded-full ml-2 mr-4" />
+          <Image
+            source={item.avatar}
+            className="w-14 h-14 rounded-full ml-2 mr-4"
+            style={{ width: 56, height: 56 }}
+          />
 
           {/* 이름 + 역할 */}
           <View className="flex-1">

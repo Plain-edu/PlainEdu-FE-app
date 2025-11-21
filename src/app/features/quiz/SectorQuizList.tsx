@@ -1,15 +1,14 @@
 import MaskedView from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
-import React from "react";
 import {
-    Image,
-    ScrollView,
-    StyleSheet,
-    Text,
-    TextInput,
-    TouchableOpacity,
-    View,
+  Image,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  TouchableOpacity,
+  View,
 } from "react-native";
 
 type Course = {
@@ -82,6 +81,7 @@ export default function SectorQuizList() {
           <Image
             source={require("@/assets/images/silver-coin.png")}
             className="w-[26px] h-[26px] mr-2"
+            style={{ width: 26, height: 26 }}
           />
           <Text className="text-[#3D4D5C] font-semibold text-[15px] leading-6">
             {points.toLocaleString()} p

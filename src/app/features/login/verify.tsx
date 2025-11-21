@@ -1,7 +1,7 @@
 import { CarrierBottomSheet } from "@/src/components/CarrierBottomSheet";
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
-import React, { useRef, useState } from "react";
+import { useRef, useState } from "react";
 import { Image, Pressable, Text, TextInput, View } from 'react-native';
 import { Modalize } from "react-native-modalize";
 
@@ -27,10 +27,10 @@ export default function VerifyScreen() {
   return (
     <View className="flex-1 bg-white px-[32px] pt-[61px]">
       {/* 뒤로가기 */}
-      <Pressable onPress={() => router.back()} className="absolute ml-[16px] z-10">
+      <Pressable onPress={() => router.back()} className="absolute z-10">
         <Image
           source={require('@/assets/images/go-back-icon.png')}
-          className="w-[35px] h-[30px]"
+          style={{ width: 35, height: 30 }}
           resizeMode="contain"
         />
       </Pressable>

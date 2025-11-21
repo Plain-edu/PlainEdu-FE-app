@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { Dimensions, Image, Text, View } from "react-native";
 import { Modalize } from "react-native-modalize";
 import DonutChart from "../components/DonutChart";
@@ -89,6 +89,7 @@ const AssetBottomSheet = forwardRef<AssetBottomSheetRef, Props>(
                 <Image
                   source={item.logo}
                   className="w-7 h-7"
+                  style={{ width: 28, height: 28 }}
                   resizeMode="contain"
                 />
               </View>
