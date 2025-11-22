@@ -1,7 +1,6 @@
 import MaskedView from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
-import React from "react";
 import { Image, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 type Course = {
@@ -15,7 +14,7 @@ type Course = {
 const COURSES: Course[] = [
   { id: "lv-1", levelLabel: "초급", subtitle: "주식의 기본 개념 이해", tags: [" 주린이", " 기초", " 초보"], progress: 65 },
   { id: "lv-2", levelLabel: "중급", subtitle: "시장 흐름 이해 및 실전 투자", tags: [" 투자", " 시장", " ETF"], progress: 65 },
-  { id: "lv-3", levelLabel: "고급", subtitle: "기업 분석과 고급 투자 기법", tags: [" 재무제표", " 차트", " 실적"], progress: 65 },
+  { id: "lv-3", levelLabel: "고급", subtitle: "기업 분석과 고급 투자 기법", tags: [" 재무제표", " 차트", " 실적"], progress: 50 },
 ];
 
 function ProgressBar({ progress }: { progress: number }) {
@@ -105,7 +104,7 @@ export default function QuizList() {
         </TouchableOpacity>
 
         <View className="flex-row items-center">
-          <Image source={require("@/assets/images/silver-coin.png")} className="w-[26px] h-[26px] mr-2" />
+          <Image source={require("@/assets/images/silver-coin.png")} className="w-[26px] h-[26px] mr-2" style={{ width: 26, height: 26 }} />
           <Text className="text-[#3D4D5C] font-semibold text-[15px] leading-6">{points.toLocaleString()} p</Text>
         </View>
       </View>
@@ -169,14 +168,14 @@ const styles = StyleSheet.create({
   tagContainer: {
     flexDirection: "row",
     flexWrap: "wrap",
-    justifyContent: "space-between",
+    gap: 4,
     marginTop: 12,
   },
 
   tagChip: {
     backgroundColor: "#F0F2F5",
     borderRadius: 24,
-    width: 95,
+    width: 80,
     paddingVertical: 6,
     alignItems: "center",
     justifyContent: "center",

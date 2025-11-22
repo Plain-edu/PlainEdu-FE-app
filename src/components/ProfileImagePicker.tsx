@@ -35,12 +35,13 @@ export default function ProfileImagePicker() {
               : require("@/assets/images/profile-placeholder.png")
           }
           className="w-[144px] h-[144px] rounded-full"
+          style={{ width: 144, height: 144 }}
           resizeMode="cover"
         />
         <Pressable onPress={pickImage} className="absolute bottom-2 right-2">
           <Image
             source={require("@/assets/images/profile-plus-icon.png")}
-            className="w-[30px] h-[30px]"
+            style={{ width: 30, height: 30 }}
             resizeMode="contain"
           />
         </Pressable>

@@ -1,4 +1,3 @@
-import React from "react";
 import { Image, Pressable, Text, View } from "react-native";
 
 type AppHeaderProps = {
@@ -13,6 +12,7 @@ export function AppHeader({ points = 0, onPressNotification }: AppHeaderProps) {
       <Image
         source={require("@/assets/images/logo-text-blue.png")}
         className="h-[34px] w-[130px]"
+        style={{ width: 130, height: 34 }}
         resizeMode="contain"
       />
 
@@ -21,7 +21,8 @@ export function AppHeader({ points = 0, onPressNotification }: AppHeaderProps) {
         {/* 코인 */}
         <Image
           source={require("@/assets/images/silver-coin.png")}
-          className="w-5 h-5 mr-2"
+          className="mr-2"
+          style={{ width: 20, height: 20 }}
         />
 
         {/* 포인트 */}
@@ -31,7 +32,7 @@ export function AppHeader({ points = 0, onPressNotification }: AppHeaderProps) {
         <Pressable onPress={onPressNotification} className="ml-4">
           <Image
             source={require("@/assets/images/notification-icon.png")}
-            className="w-6 h-6"
+            style={{ width: 24, height: 24 }}
           />
         </Pressable>
       </View>

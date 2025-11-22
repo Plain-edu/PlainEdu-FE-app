@@ -1,7 +1,13 @@
 import type { QuizColorMatch } from "@/src/constants/quiz/types";
-import React, { useState } from "react";
-import { Image, Text, TouchableOpacity, View } from "react-native";
-import { Modal as PaperModal, Portal } from "react-native-paper";
+import { useState } from "react";
+import {
+  Image,
+  Modal,
+  Pressable,
+  Text,
+  TouchableOpacity,
+  View,
+} from "react-native";
 
 type Props = { quiz: QuizColorMatch; onNext?: () => void; progress: number };
 
@@ -65,42 +71,15 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
 
   const handleModalNext = () => {
     setShowModal(false);
-    setPairs([]);
-    setIsCorrect(null);
-    setTimeout(() => onNext?.(), 300);
+    setTimeout(() => {
+      setPairs([]);
+      setIsCorrect(null);
+      onNext?.();
+    }, 300);
   };
 
   return (
     <>
-      {isCorrect && (
-        <Portal>
-          <View
-            style={{
-              position: "absolute",
-              top: "30%",
-              left: 0,
-              right: 0,
-              alignItems: "center",
-              zIndex: 9999,
-            }}
-            pointerEvents="none"
-          >
-            <Image
-              source={require("@/assets/images/points-icon.png")}
-              style={{
-                width: 197,
-                height: 288,
-                resizeMode: "contain",
-                marginBottom: 12,
-              }}
-            />
-            <Text className="text-[rgba(28,69,214,1)] text-3xl font-bold">
-              1,000p 획득!
-            </Text>
-          </View>
-        </Portal>
-      )}
-
       <View className="flex-1 bg-white px-8 pt-9 pb-6 relative">
         {/* 상단 닫기 버튼 */}
         <TouchableOpacity className="mb-6">
@@ -181,26 +160,63 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
           </TouchableOpacity>
         </View>
 
-        <Portal>
-          <PaperModal
-            visible={showModal}
-            onDismiss={() => setShowModal(false)}
-            contentContainerStyle={{
-              position: "absolute",
-              bottom: -42,
-              left: 0,
-              right: 0,
-              width: "100%",
-              alignSelf: "center",
-              backgroundColor: "white",
-              borderTopLeftRadius: 24,
-              borderTopRightRadius: 24,
-              paddingHorizontal: 24,
-              paddingVertical: 32,
+        <Modal
+          visible={showModal}
+          transparent
+          animationType="fade"
+          onRequestClose={() => setShowModal(false)}
+        >
+          {/* 반투명 배경 */}
+          <Pressable
+            style={{
+              flex: 1,
+              backgroundColor: "rgba(0,0,0,0.5)",
+              justifyContent: "flex-end",
             }}
+            onPress={() => setShowModal(false)}
           >
-            {isCorrect ? (
-              <>
+            {/* 코인 + 포인트 효과 */}
+            {isCorrect && (
+              <View
+                style={{
+                  position: "absolute",
+                  top: "30%",
+                  left: 0,
+                  right: 0,
+                  alignItems: "center",
+                  zIndex: 3,
+                }}
+                pointerEvents="none"
+              >
+                <Image
+                  source={require("@/assets/images/points-icon.png")}
+                  style={{
+                    width: 197,
+                    height: 288,
+                    resizeMode: "contain",
+                    marginBottom: 12,
+                  }}
+                />
+                <Text className="text-[rgba(28,69,214,1)] text-3xl font-bold">
+                  1,000p 획득!
+                </Text>
+              </View>
+            )}
+
+            {/* 하단 흰색 모달 카드 */}
+            <View
+              style={{
+                backgroundColor: "white",
+                borderTopLeftRadius: 24,
+                borderTopRightRadius: 24,
+                paddingHorizontal: 24,
+                paddingVertical: 32,
+                width: "100%",
+                maxWidth: 480,
+                alignSelf: "center",
+              }}
+            >
+              {isCorrect ? (
                 <View className="flex-row items-center justify-between mb-3">
                   <Text className="text-blue-500 font-bold text-2xl">
                     O 정답입니다!
@@ -219,44 +235,44 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
                     />
                   </TouchableOpacity>
                 </View>
-              </>
-            ) : (
-              <>
-                <View className="flex-row items-center justify-between mb-3">
-                  <Text className="text-red-500 font-bold text-2xl">
-                    X 오답입니다!
-                  </Text>
-                  <TouchableOpacity
-                    onPress={() => setSaved(!saved)}
-                    activeOpacity={0.7}
-                    className="items-center"
-                  >
-                    <Image
-                      source={require("@/assets/images/save-icon.png")}
-                      style={[
-                        { width: 45, height: 50, resizeMode: "contain" },
-                        saved ? { tintColor: "black" } : {},
-                      ]}
-                    />
-                  </TouchableOpacity>
-                </View>
-                {quiz.explanation && (
-                  <Text className="text-gray-500 text-sm leading-6">
-                    {quiz.explanation}
-                  </Text>
-                )}
-              </>
-            )}
+              ) : (
+                <>
+                  <View className="flex-row items-center justify-between mb-3">
+                    <Text className="text-red-500 font-bold text-2xl">
+                      X 오답입니다!
+                    </Text>
+                    <TouchableOpacity
+                      onPress={() => setSaved(!saved)}
+                      activeOpacity={0.7}
+                      className="items-center"
+                    >
+                      <Image
+                        source={require("@/assets/images/save-icon.png")}
+                        style={[
+                          { width: 45, height: 50, resizeMode: "contain" },
+                          saved ? { tintColor: "black" } : {},
+                        ]}
+                      />
+                    </TouchableOpacity>
+                  </View>
+                  {quiz.explanation && (
+                    <Text className="text-gray-500 text-sm leading-6">
+                      {quiz.explanation}
+                    </Text>
+                  )}
+                </>
+              )}
 
-            <TouchableOpacity
-              activeOpacity={0.8}
-              onPress={handleModalNext}
-              className="bg-blue-500 py-4 rounded-full mt-6 items-center"
-            >
-              <Text className="text-white text-base font-bold">다음</Text>
-            </TouchableOpacity>
-          </PaperModal>
-        </Portal>
+              <TouchableOpacity
+                activeOpacity={0.8}
+                onPress={handleModalNext}
+                className="bg-blue-500 py-4 rounded-full mt-6 items-center"
+              >
+                <Text className="text-white text-base font-bold">다음</Text>
+              </TouchableOpacity>
+            </View>
+          </Pressable>
+        </Modal>
       </View>
     </>
   );

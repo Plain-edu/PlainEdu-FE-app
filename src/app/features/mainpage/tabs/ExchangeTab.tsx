@@ -1,4 +1,3 @@
-import React from "react";
 import { FlatList, Image, SafeAreaView, Text, TouchableOpacity, View } from "react-native";
 import { STORE_ITEMS } from "../../../../constants/StoreItems";
 
@@ -23,6 +22,7 @@ export function ExchangeTab() {
             <Image
               source={item.image}
               className="w-[146px] h-[123px]"
+              style={{ width: 146, height: 123 }}
               resizeMode="cover"
             />
 

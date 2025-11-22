@@ -1,5 +1,5 @@
 import { LinearGradient } from "expo-linear-gradient";
-import React, { useState } from "react";
+import { useState } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 import { RankingList } from "../../../components/RankingList";
 import { ALL_RANKING, FRIEND_LIST, FRIEND_RANKING } from "../../../constants/RankingsMockData";
@@ -25,6 +25,7 @@ export function RankingScreen() {
         <Image
           source={require("@/assets/images/search-icon.png")}
           className="w-6 h-6 mr-6"
+          style={{ width: 24, height: 24 }}
           resizeMode="contain"
         />
       </View>

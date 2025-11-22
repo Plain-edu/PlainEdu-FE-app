@@ -44,10 +44,10 @@ export default function VerifyCodeScreen() {
   return (
     <View className="flex-1 bg-white px-[32px] pt-[61px]">
       {/* 뒤로가기 */}
-      <Pressable onPress={() => router.back()} className="absolute ml-[16px] z-10">
+      <Pressable onPress={() => router.back()} className="absolute z-10">
         <Image
           source={require("@/assets/images/go-back-icon.png")}
-          className="w-[35px] h-[30px]"
+          style={{ width: 35, height: 30 }}
           resizeMode="contain"
         />
       </Pressable>
@@ -91,7 +91,10 @@ export default function VerifyCodeScreen() {
                     onChangeText={(text) => handleChange(text, idx)}
                     keyboardType="numeric"
                     maxLength={1}
-                    style={styles.inputFilled}
+                    style={[
+                      styles.inputFilled,
+                      { textAlign: "center" }
+                    ]}
                     textAlign="center"
                     />
                 </LinearGradient>
@@ -105,7 +108,10 @@ export default function VerifyCodeScreen() {
                     onChangeText={(text) => handleChange(text, idx)}
                     keyboardType="numeric"
                     maxLength={1}
-                    style={styles.inputEmpty}
+                    style={[
+                      styles.inputEmpty,
+                      { textAlign: "center" }
+                    ]}
                     textAlign="center"
                 />
                 )}

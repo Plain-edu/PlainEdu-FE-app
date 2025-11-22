@@ -1,6 +1,6 @@
 import { TradeBottomSheet, TradeBottomSheetRef } from "@/src/components/TradeBottomSheet";
 import { router, useLocalSearchParams } from "expo-router";
-import React, { useRef } from "react";
+import { useRef } from "react";
 import { Image, Pressable, Text, View } from "react-native";
 
 export default function InvestDetail() {
@@ -21,10 +21,11 @@ export default function InvestDetail() {
   return (
     <View className="flex-1 bg-white px-6 pt-[61px]">
       {/* 뒤로가기 */}
-      <Pressable onPress={() => router.back()} className="absolute ml-[16px] z-10 mt-4">
+      <Pressable onPress={() => router.back()} className="z-10">
         <Image
           source={require('@/assets/images/go-back-icon.png')}
           className="w-[35px] h-[30px]"
+          style={{ width: 35, height: 30 }}
           resizeMode="contain"
         />
       </Pressable>
