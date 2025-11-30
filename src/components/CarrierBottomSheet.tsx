@@ -1,4 +1,4 @@
-import React, { forwardRef } from "react";
+import { forwardRef } from "react";
 import { Text, TouchableOpacity, View } from "react-native";
 import { Modalize } from "react-native-modalize";
 
@@ -25,12 +25,12 @@ export const CarrierBottomSheet = forwardRef<Modalize, CarrierBottomSheetProps>(
         backgroundColor: 'white',
       }}
       >
-        <View className="bg-white p-4 items-center">
+        <View className="bg-white p-4 items-center font-pretendard">
           {carriers.map((c, index) => (
             <TouchableOpacity
               key={c}
               onPress={() => onSelect(c)}
-              className="w-full items-center py-3"
+              className="w-full items-center py-3 font-pretendard"
               style={{
                 borderTopWidth: index === 0 ? 1 : 0,
                 borderBottomWidth: 1,
@@ -44,7 +44,7 @@ export const CarrierBottomSheet = forwardRef<Modalize, CarrierBottomSheetProps>(
                 style={{
                   fontFamily: "Pretendard",
                   fontWeight: "500",
-                  fontSize: 18,
+                  fontSize: 17,
                   lineHeight: 25,
                   color: "#3D4D5C",
                 }}
