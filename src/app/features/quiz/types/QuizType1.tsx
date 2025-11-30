@@ -1,6 +1,5 @@
 import { useState } from "react";
 import { Image, Modal, ScrollView, Text, TouchableOpacity, View } from "react-native";
-import { Portal } from "react-native-paper";
 
 type BaseQuiz = {
   id: string;
@@ -45,39 +44,12 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
 
   return (
     <>
-      {isCorrect && (
-        <Portal>
-          <View
-            style={{
-              position: "absolute",
-              top: "30%",
-              left: 0,
-              right: 0,
-              alignItems: "center",
-              zIndex: 999,
-            }}
-            pointerEvents="none"
-          >
-            <Image
-              source={require("@/assets/images/points-icon.png")}
-              style={{
-                width: 197,
-                height: 288,
-                resizeMode: "contain",
-                marginBottom: 12,
-              }}
-            />
-            <Text className="text-[rgba(28,69,214,1)] text-3xl font-bold">1,000p 획득!</Text>
-          </View>
-        </Portal>
-      )}
-
       <View className="flex-1 bg-white px-8 pt-9 relative">
         <TouchableOpacity className="mb-6">
           <Text className="text-2xl">✕</Text>
         </TouchableOpacity>
 
-        <View className="h-2 w-full bg-gray-200 rounded-full mt-10 mb-6 overflow-hidden">
+        <View className="h-2 w-full bg-gray-200 rounded-full mb-6 overflow-hidden">
           <View
             style={{ width: `${progress * 100}%` }}
             className="h-2 bg-[#1C45D6] rounded-full"
@@ -97,7 +69,7 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
                 ${selected === idx ? "border-blue-500 bg-blue-50" : "border-gray-200 bg-white"}
               `}
             >
-              <Text className="flex-1 text-base">{opt}</Text>
+              <Text className="flex-1 text-sm">{opt}</Text>
               <View
                 className={`w-5 h-5 rounded-full border-2 
                   ${selected === idx ? "border-blue-500 bg-blue-500" : "border-gray-300 bg-white"}
@@ -129,7 +101,7 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
               <View
                 style={{
                   position: "absolute",
-                  top: "30%",
+                  top: "20%",
                   left: 0,
                   right: 0,
                   alignItems: "center",
@@ -140,13 +112,13 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
                 <Image
                   source={require("@/assets/images/points-icon.png")}
                   style={{
-                    width: 197,
-                    height: 288,
+                    width: 180,
+                    height: 265,
                     resizeMode: "contain",
                     marginBottom: 12,
                   }}
                 />
-                <Text className="text-[rgba(28,69,214,1)] text-3xl font-bold">1,000p 획득!</Text>
+                <Text className="text-[rgba(28,69,214,1)] text-2xl font-bold">1,000p 획득!</Text>
               </View>
             )}
 
@@ -163,7 +135,7 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
                   borderTopLeftRadius: 24,
                   borderTopRightRadius: 24,
                   paddingHorizontal: 24,
-                  paddingVertical: 32,
+                  paddingVertical: 20,
                   zIndex: 2,
                   width: "100%",
                   maxWidth: 480,

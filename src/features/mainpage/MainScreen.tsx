@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { Pressable, StyleSheet, Text, View } from "react-native";
+import { Pressable, ScrollView, StyleSheet, Text, View } from "react-native";
 import { ExchangeTab } from "../../app/features/mainpage/tabs/ExchangeTab";
 import { InvestTab } from "../../app/features/mainpage/tabs/InvestTab";
 import { QuizTab } from "../../app/features/mainpage/tabs/QuizTab";
@@ -33,6 +33,7 @@ export function MainScreen() {
   };
 
   return (
+    <ScrollView>
     <View className="flex-1 bg-white -mt-[30px]">
       <AppHeader points={10000} />
 
@@ -82,6 +83,7 @@ export function MainScreen() {
       {/* 탭별 컨텐츠 */}
       <View style={{ flex: 1 }}>{renderContent()}</View>
     </View>
+    </ScrollView>
   );
 }
 

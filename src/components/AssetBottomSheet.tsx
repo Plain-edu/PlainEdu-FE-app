@@ -34,7 +34,7 @@ const AssetBottomSheet = forwardRef<AssetBottomSheetRef, Props>(
         flatListProps={{
           data: STOCKS,
           keyExtractor: (item) => item.id.toString(),
-          // 상단 고정 영역 (요약 + 도넛차트 + 테이블 헤더)
+
           ListHeaderComponent: (
             <View className="px-9 py-9">
               <Text
@@ -72,20 +72,59 @@ const AssetBottomSheet = forwardRef<AssetBottomSheetRef, Props>(
               </View>
 
               {/* 테이블 헤더 */}
-              <View className="flex-row justify-center items-center border-b border-gray-200 mt-4 -mb-6 pb-2 text-[15px] font-semibold">
-                <Text className="flex-1" />
-                <Text className="w-20">종목명</Text>
-                <Text className="w-16 text-center">보유량</Text>
-                <Text className="w-28 text-center">평가금액</Text>
-                <Text className="w-28 text-center text-[12px]">평가손익{"\n"}(수익률)</Text>
+              <View className="flex-row justify-center items-center border-b border-gray-200 mt-4 -mb-6 pb-2">
+
+                {/* 로고 자리 */}
+                <View className="w-7" />
+
+                {/* 종목명 */}
+                <Text
+                  className="flex-[1.2] text-center mr-5"
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.75}
+                  numberOfLines={1}
+                >
+                  종목명
+                </Text>
+
+                {/* 보유량 */}
+                <Text
+                  className="flex-[0.9] text-center"
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.75}
+                  numberOfLines={1}
+                >
+                  보유량
+                </Text>
+
+                {/* 평가금액 */}
+                <Text
+                  className="flex-[1.3] text-center"
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.75}
+                  numberOfLines={1}
+                >
+                  평가금액
+                </Text>
+
+                {/* 평가손익(수익률) 2줄 */}
+                <Text
+                  className="flex-[1.4] text-center text-[12px]"
+                  adjustsFontSizeToFit
+                  minimumFontScale={0.75}
+                  numberOfLines={2}
+                >
+                  평가손익{"\n"}(수익률)
+                </Text>
               </View>
             </View>
           ),
-          // 데이터 렌더링
+
           renderItem: ({ item }) => (
-            <View className="flex-row items-center justify-center text-center px-9 py-2">
+            <View className="flex-row items-center justify-center text-center px-7 py-2">
+
               {/* 로고 */}
-              <View className="w-8 items-center pr-7">
+              <View className="w-10 items-center pr-3">
                 <Image
                   source={item.logo}
                   className="w-7 h-7"
@@ -95,22 +134,42 @@ const AssetBottomSheet = forwardRef<AssetBottomSheetRef, Props>(
               </View>
 
               {/* 종목명 */}
-              <Text className="flex-1 text-center text-[13px]">{item.name}</Text>
+              <Text
+                style={{ fontFamily: "Pretendard" }}
+                className="flex-[1.2] text-[12px]"
+              >
+                {item.name}
+              </Text>
 
               {/* 보유량 */}
-              <Text className="w-16 text-center text-[13px]">
+              <Text
+                className="flex-[0.9] text-center text-[12px]"
+                adjustsFontSizeToFit
+                minimumFontScale={0.75}
+                numberOfLines={1}
+              >
                 {item.quantity}
               </Text>
 
               {/* 평가금액 */}
-              <Text className="w-28 text-center text-[10px]">{item.value}</Text>
+              <Text
+                className="flex-[1.3] text-center text-[10px]"
+                adjustsFontSizeToFit
+                minimumFontScale={0.75}
+                numberOfLines={1}
+              >
+                {item.value}
+              </Text>
 
-              {/* 평가손익 */}
-              <Text className="w-28 text-center text-[10px]">
-                {/* profit → 항상 검정 */}
+              {/* 평가손익 + 수익률 */}
+              <Text
+                className="flex-[1.4] text-center text-[10px]"
+                adjustsFontSizeToFit
+                minimumFontScale={0.75}
+                numberOfLines={2}
+              >
                 <Text className="text-black">{item.profit}</Text>
                 {"\n"}
-                {/* profitRate → 조건부 색상 */}
                 <Text className={item.profitRate > 0 ? "text-red-500" : "text-blue-500"}>
                   {item.profitRate > 0 ? `+${item.profitRate}%` : `${item.profitRate}%`}
                 </Text>

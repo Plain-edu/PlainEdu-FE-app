@@ -40,7 +40,11 @@
       "expo-web-browser"
     ],
     "experiments": {
-      "typedRoutes": true
+      "typedRoutes": true,
+      "router": {
+        "showDebugInfo": false,
+        "disabledWarnings": true
+      }
     },
     "extra": {
       "router": {},

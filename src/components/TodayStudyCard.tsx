@@ -1,4 +1,3 @@
-import React from "react";
 import { Image, StyleSheet, Text, View, ViewStyle } from "react-native";
 
 type Props = {
@@ -68,6 +67,7 @@ const styles = StyleSheet.create({
     alignSelf: "center",
     position: "relative",
     overflow: "visible",
+    marginBottom: 30,
   },
   whale: {
     position: "absolute",

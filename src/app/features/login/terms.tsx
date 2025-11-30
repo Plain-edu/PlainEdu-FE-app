@@ -3,7 +3,7 @@ import MaskedView from '@react-native-masked-view/masked-view';
 import { LinearGradient } from 'expo-linear-gradient';
 import { useRouter } from 'expo-router';
 import { useState } from 'react';
-import { Image, Pressable, Text, View } from 'react-native';
+import { Image, Pressable, ScrollView, Text, View } from 'react-native';
 
 export default function TermsScreen() {
   const router = useRouter();
@@ -77,7 +77,8 @@ export default function TermsScreen() {
   };
 
   return (
-    <View className="flex-1 bg-white px-[32px] pt-[61px]">
+    <ScrollView style={{ backgroundColor: "#fff" }}>
+    <View className="bg-white px-[32px] pt-[61px]">
       {/* 뒤로가기 */}
       <Pressable onPress={() => router.back()} className="absolute z-10">
         <Image
@@ -117,7 +118,7 @@ export default function TermsScreen() {
         className="flex-row items-center justify-center rounded-[12px]"
         style={{
           paddingVertical: 17,
-          paddingHorizontal: 60,
+          paddingHorizontal: 40,
           gap: 5,
           borderWidth: 2.5,
           borderColor: agreeAll ? '#007AFF' : '#F0F2F5',
@@ -175,6 +176,7 @@ export default function TermsScreen() {
             shadowOpacity: 0.25,
             shadowRadius: 8,
             elevation: 5,
+            marginBottom: 30,
         }}
         >
         <LinearGradient
@@ -205,5 +207,6 @@ export default function TermsScreen() {
         </LinearGradient>
       </Pressable>
     </View>
+    </ScrollView>
   );
 }
