@@ -61,7 +61,7 @@ export default function TermsScreen() {
           />
           <Text
             style={{
-              fontFamily: 'Pretendard',
+              fontFamily: 'PretendardSemiBold',
               fontWeight: '600',
               fontSize: 15,
               lineHeight: 21,
@@ -194,7 +194,7 @@ export default function TermsScreen() {
         >
             <Text
             style={{
-                fontFamily: 'Pretendard',
+                fontFamily: 'PretendardSemiBold',
                 fontWeight: '700',
                 fontSize: 17,
                 lineHeight: 21,

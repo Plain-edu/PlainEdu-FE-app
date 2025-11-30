@@ -46,7 +46,7 @@ function GradientLevelLabel({ text }: { text: string }) {
       maskElement={
         <Text
           style={{
-            fontFamily: "Pretendard",
+            fontFamily: "PretendardSemiBold",
             fontStyle: "normal",
             fontWeight: "700",
             fontSize: 25,
@@ -62,7 +62,7 @@ function GradientLevelLabel({ text }: { text: string }) {
         <Text
           style={{
             opacity: 0,
-            fontFamily: "Pretendard",
+            fontFamily: "PretendardSemiBold",
             fontStyle: "normal",
             fontWeight: "700",
             fontSize: 25,
@@ -183,7 +183,7 @@ const styles = StyleSheet.create({
     justifyContent: "center",
   },
   tagText: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "600",
     fontSize: 12,
     lineHeight: 21,

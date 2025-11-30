@@ -9,6 +9,7 @@ export default function RootLayout() {
 
   const [loaded] = useFonts({
     Pretendard: require("../../assets/fonts/Pretendard-Regular.ttf"),
+    PretendardSemiBold: require("../../assets/fonts/Pretendard-SemiBold.ttf"),
     PretendardBold: require("../../assets/fonts/Pretendard-Bold.ttf"),
   });
 

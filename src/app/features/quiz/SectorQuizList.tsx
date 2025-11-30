@@ -28,7 +28,7 @@ function GradientLevelLabel({ text }: { text: string }) {
   return (
     <Text
       style={{
-        fontFamily: "Pretendard",
+        fontFamily: "PretendardSemiBold",
         fontWeight: "700",
         fontSize: 24,
         color: "#1C45D6",

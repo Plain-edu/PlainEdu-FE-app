@@ -100,7 +100,7 @@ const styles = StyleSheet.create({
     justifyContent: "space-between",
   },
   title: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "700",
     fontSize: 17,
     color: "#2D3540",
@@ -115,13 +115,13 @@ const styles = StyleSheet.create({
     borderRadius: 14,
   },
   badgeTextGray: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "700",
     fontSize: 12,
     color: "#3D4D5C",
   },
   badgeTextBlue: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "700",
     fontSize: 12,
     color: "#1C6EFF",
@@ -146,14 +146,14 @@ const styles = StyleSheet.create({
   },
 
   big: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "700",
     fontSize: 17,
     color: "#3D4D5C",
     marginBottom: 4,
   },
   sub: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "600",
     fontSize: 12,
     color: "#3D4D5C",

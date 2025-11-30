@@ -28,7 +28,7 @@ function GradientNumber({ num }: { num: number }) {
       maskElement={
         <Text
           style={{
-            fontFamily: "Pretendard",
+            fontFamily: "PretendardSemiBold",
             fontStyle: "normal",
             fontWeight: "700",
             fontSize: 35,
@@ -50,7 +50,7 @@ function GradientNumber({ num }: { num: number }) {
         <Text
           style={{
             opacity: 0,
-            fontFamily: "Pretendard",
+            fontFamily: "PretendardSemiBold",
             fontStyle: "normal",
             fontWeight: "700",
             fontSize: 35,

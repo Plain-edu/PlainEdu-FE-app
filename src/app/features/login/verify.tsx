@@ -139,7 +139,7 @@ export default function VerifyScreen() {
             >
                 <Text
                 style={{
-                    fontFamily: 'Pretendard',
+                    fontFamily: 'PretendardSemiBold',
                     fontWeight: '700',
                     fontSize: 17,
                     lineHeight: 21,
