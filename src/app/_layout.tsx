@@ -11,7 +11,6 @@ export default function RootLayout() {
         <Portal.Host>
 
           <View style={styles.root}>
-            {/* ⭐ 웹에서만 maxWidth 적용 */}
             <View
               style={
                 Platform.OS === "web"
@@ -40,16 +39,14 @@ const styles = StyleSheet.create({
     backgroundColor: "#ffffff",
   },
 
-  // ⭐ 앱에서는 전체 화면 사용
   nativeContainer: {
     flex: 1,
     width: "100%",
   },
 
-  // ⭐ 웹에서는 480px 고정 + 중앙 정렬
   webContainer: {
     flex: 1,
-    width: 480,
+    width: "100%",
     maxWidth: 480,
   },
 });

@@ -1,6 +1,4 @@
-import MaskedView from "@react-native-masked-view/masked-view";
 import { LinearGradient } from "expo-linear-gradient";
-import React from "react";
 import { Image, Pressable, StyleSheet, Text, View, ViewStyle } from "react-native";
 
 type Props = {
@@ -16,21 +14,29 @@ export function QuizCard({ title, description, buttonText, onPress, style }: Pro
 
   return (
     <View style={[styles.card, style]}>
-      <MaskedView maskElement={<Text style={styles.title}>{title}</Text>}>
-        <LinearGradient colors={["#1C45D6", "#007AFF"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
-          <Text style={[styles.title, { opacity: 0 }]}>{title}</Text>
-        </LinearGradient>
-      </MaskedView>
+      
+      {/* 제목 (SVG 제거 → 단색 Text 적용) */}
+      <View style={{ height: 32, justifyContent: "center" }}>
+        <Text
+          style={{
+            fontFamily: "Pretendard",
+            fontWeight: "700",
+            fontSize: 24,
+            lineHeight: 25,
+            color: "#1C45D6",
+          }}
+        >
+          {title}
+        </Text>
+      </View>
 
+      {/* 설명 영역 */}
       <View style={styles.descBlock}>
         <Text style={styles.descLine}>주식 투자에 꼭 필요한</Text>
-
         <View style={styles.descLineRow}>
-          <MaskedView maskElement={<Text style={[styles.desc, styles.bold]}>{highlight}</Text>}>
-            <LinearGradient colors={["#1C45D6", "#007AFF"]} start={{ x: 0, y: 0 }} end={{ x: 1, y: 0 }}>
-              <Text style={[styles.desc, styles.bold, { opacity: 0 }]}>{highlight}</Text>
-            </LinearGradient>
-          </MaskedView>
+          <Text style={[styles.desc, styles.bold, { color: "#2A5DE8" }]}>
+            {highlight}
+          </Text>
           <Text style={[styles.desc, { marginLeft: 4 }]}>를 쉽고 빠르게!</Text>
         </View>
       </View>
@@ -46,11 +52,11 @@ export function QuizCard({ title, description, buttonText, onPress, style }: Pro
           <Image
             source={require("../../assets/images/quiz-icon.png")}
             style={styles.buttonIcon}
-            resizeMode="contain"
           />
           <Text style={styles.buttonText}>{buttonText}</Text>
         </LinearGradient>
       </Pressable>
+
     </View>
   );
 }
@@ -75,38 +81,35 @@ const styles = StyleSheet.create({
 
   title: {
     fontFamily: "Pretendard",
-    fontStyle: "normal",
     fontWeight: "700",
     fontSize: 24,
     lineHeight: 25,
   },
 
-  descBlock: {
-    marginTop: 26,
-  },
+  descBlock: { marginTop: 26 },
+
   descLine: {
     fontFamily: "Pretendard",
-    fontStyle: "normal",
     fontWeight: "600",
     fontSize: 17,
     lineHeight: 26,
     color: "#121217",
   },
+
   descLineRow: {
     flexDirection: "row",
     alignItems: "baseline",
   },
+
   desc: {
     fontFamily: "Pretendard",
-    fontStyle: "normal",
     fontWeight: "600",
     fontSize: 17,
     lineHeight: 26,
     color: "#121217",
   },
-  bold: {
-    fontWeight: "700",
-  },
+
+  bold: { fontWeight: "700" },
 
   button: {
     height: 40,
@@ -116,24 +119,21 @@ const styles = StyleSheet.create({
     alignItems: "center",
     justifyContent: "center",
     alignSelf: "center",
-    shadowColor: "#000",
-    shadowOpacity: 0.12,
-    shadowRadius: 12,
-    shadowOffset: { width: 0, height: 6 },
-    elevation: 4,
     marginTop: 26,
   },
+
   buttonIcon: {
     width: 24,
     height: 23,
     marginRight: 10,
-    tintColor: "#FFFFFF",
+    tintColor: "white",
   },
+
   buttonText: {
-    color: "#FFFFFF",
+    color: "white",
     fontFamily: "Pretendard",
     fontWeight: "700",
-    lineHeight: 25,
     fontSize: 17,
+    lineHeight: 25,
   },
 });

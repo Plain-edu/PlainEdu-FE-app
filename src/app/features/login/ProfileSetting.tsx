@@ -2,7 +2,7 @@ import ProfileImagePicker from "@/src/components/ProfileImagePicker";
 import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import { useState } from "react";
-import { Image, Pressable, Text, TextInput, View } from "react-native";
+import { Image, Pressable, ScrollView, Text, TextInput, View } from "react-native";
 
 export default function ProfileSettingScreen() {
   const router = useRouter();
@@ -11,6 +11,7 @@ export default function ProfileSettingScreen() {
   const [gender, setGender] = useState<"남성" | "여성" | "">("");
 
   return (
+    <ScrollView style={{ backgroundColor: "#fff" }}>
     <View className="flex-1 bg-white px-[32px] pt-[61px]">
       {/* 뒤로가기
       <Pressable
@@ -51,11 +52,11 @@ export default function ProfileSettingScreen() {
     <Text className="text-[14px] font-bold text-[#121217]">닉네임</Text>
     </View>
     <TextInput
-    placeholder="닉네임"
-    placeholderTextColor="#3D4D5C"
-    className="w-full h-[48px] rounded-[12px] border-[2.5px] border-[#F0F2F5] px-4 mb-[16px]"
-    value={name}
-    onChangeText={setName}
+      placeholder="닉네임"
+      placeholderTextColor="#3D4D5C"
+      className="w-full h-[48px] rounded-[12px] border-[2.5px] border-[#F0F2F5] px-4 mb-[16px]"
+      value={name}
+      onChangeText={setName}
     />
 
     {/* 성별 */}
@@ -155,5 +156,6 @@ export default function ProfileSettingScreen() {
         </LinearGradient>
       </Pressable>
     </View>
+    </ScrollView>
   );
 }

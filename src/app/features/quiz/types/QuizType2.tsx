@@ -58,7 +58,7 @@ export default function QuizType2({ quiz, onNext, progress }: Props) {
       <Text className="text-gray-500 mb-6">정답을 선택해주세요!</Text>
 
       {/* OX 버튼 */}
-      <View className="flex-row justify-center space-x-10 mb-10">
+      <View className="flex-row justify-center space-x-2 mb-10">
         {/* O 버튼 */}
         <TouchableOpacity onPress={() => setSelected("O")} activeOpacity={0.7}>
           <View style={styles.imageWrapper}>
@@ -119,7 +119,7 @@ export default function QuizType2({ quiz, onNext, progress }: Props) {
             <View
               style={{
                 position: "absolute",
-                top: "30%",
+                top: "20%",
                 left: 0,
                 right: 0,
                 alignItems: "center",
@@ -130,13 +130,13 @@ export default function QuizType2({ quiz, onNext, progress }: Props) {
               <Image
                 source={require("@/assets/images/points-icon.png")}
                 style={{
-                  width: 197,
-                  height: 288,
+                  width: 180,
+                  height: 265,
                   resizeMode: "contain",
                   marginBottom: 12,
                 }}
               />
-              <Text className="text-[rgba(28,69,214,1)] text-3xl font-bold">
+              <Text className="text-[rgba(28,69,214,1)] text-2xl font-bold">
                 1,000p 획득!
               </Text>
             </View>
@@ -149,14 +149,14 @@ export default function QuizType2({ quiz, onNext, progress }: Props) {
               borderTopLeftRadius: 24,
               borderTopRightRadius: 24,
               paddingHorizontal: 24,
-              paddingVertical: 32,
+              paddingVertical: 20,
               width: "100%",
               maxWidth: 480,
               alignSelf: "center",
             }}
           >
             {isCorrect ? (
-              <View className="flex-row items-center justify-between mb-3">
+              <View className="flex-row items-center justify-between mb-2">
                 <Text className="text-blue-500 font-bold text-2xl">
                   O 정답입니다!
                 </Text>

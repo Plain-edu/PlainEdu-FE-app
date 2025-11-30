@@ -8,6 +8,7 @@ import {
   TouchableOpacity,
   View,
 } from "react-native";
+import { ScrollView } from "react-native-gesture-handler";
 
 type Props = { quiz: QuizColorMatch; onNext?: () => void; progress: number };
 
@@ -80,6 +81,7 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
 
   return (
     <>
+      <ScrollView style={{ backgroundColor: "#fff" }}>
       <View className="flex-1 bg-white px-8 pt-9 pb-6 relative">
         {/* 상단 닫기 버튼 */}
         <TouchableOpacity className="mb-6">
@@ -98,7 +100,7 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
         <Text className="text-gray-500 mb-4">같은 색으로 정답을 연결해주세요!</Text>
 
         {/* 문제 박스 리스트 */}
-        <View className="flex-grow justify-start space-y-6 mt-2 mb-20">
+        <View className="flex-grow justify-start space-y-6 mt-2">
           {quiz.leftItems.map((left, idx) => {
             const right = quiz.rightItems[idx];
             const leftColor = getColorOfBox("left", idx);
@@ -107,42 +109,42 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
             return (
               <View
                 key={idx}
-                className="flex-row items-center justify-between mb-5"
+                className="flex-row items-center justify-between mb-3"
               >
                 {/* 왼쪽 박스 */}
                 <TouchableOpacity
                   onPress={() => handlePress("left", idx)}
                   style={{
-                    borderWidth: 4,
+                    borderWidth: 2,
                     borderColor: leftColor || "#d1d5db",
                     backgroundColor: "#fff",
                     borderRadius: 12,
                     paddingVertical: 14,
                     paddingHorizontal: 10,
-                    width: 130,
+                    width: 110,
                     alignItems: "center",
                     justifyContent: "center",
                   }}
                 >
-                  <Text className="text-base font-semibold">{left}</Text>
+                  <Text className="text-xs font-semibold">{left}</Text>
                 </TouchableOpacity>
 
                 {/* 오른쪽 박스 */}
                 <TouchableOpacity
                   onPress={() => handlePress("right", idx)}
                   style={{
-                    borderWidth: 4,
+                    borderWidth: 2,
                     borderColor: rightColor || "#d1d5db",
                     backgroundColor: "#fff",
                     borderRadius: 12,
                     paddingVertical: 14,
                     paddingHorizontal: 10,
-                    width: 180,
+                    width: 170,
                     alignItems: "center",
                     justifyContent: "center",
                   }}
                 >
-                  <Text className="text-base">{right}</Text>
+                  <Text className="text-xs">{right}</Text>
                 </TouchableOpacity>
               </View>
             );
@@ -150,7 +152,7 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
         </View>
 
         {/* 하단 버튼 */}
-        <View className="absolute bottom-6 left-8 right-8">
+        <View className="mt-12">
           <TouchableOpacity
             activeOpacity={0.8}
             onPress={handleNext}
@@ -180,7 +182,7 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
               <View
                 style={{
                   position: "absolute",
-                  top: "30%",
+                  top: "20%",
                   left: 0,
                   right: 0,
                   alignItems: "center",
@@ -191,13 +193,13 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
                 <Image
                   source={require("@/assets/images/points-icon.png")}
                   style={{
-                    width: 197,
-                    height: 288,
+                    width: 180,
+                    height: 265,
                     resizeMode: "contain",
                     marginBottom: 12,
                   }}
                 />
-                <Text className="text-[rgba(28,69,214,1)] text-3xl font-bold">
+                <Text className="text-[rgba(28,69,214,1)] text-2xl font-bold">
                   1,000p 획득!
                 </Text>
               </View>
@@ -210,7 +212,7 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
                 borderTopLeftRadius: 24,
                 borderTopRightRadius: 24,
                 paddingHorizontal: 24,
-                paddingVertical: 32,
+                paddingVertical: 20,
                 width: "100%",
                 maxWidth: 480,
                 alignSelf: "center",
@@ -274,6 +276,7 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
           </Pressable>
         </Modal>
       </View>
+      </ScrollView>
     </>
   );
 }

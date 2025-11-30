@@ -132,7 +132,6 @@ export default function VerifyScreen() {
                 style={{
                 borderRadius: 24,
                 paddingVertical: 10,
-                paddingHorizontal: 135,
                 flexDirection: 'row',
                 alignItems: 'center',
                 justifyContent: 'center',

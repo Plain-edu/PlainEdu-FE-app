@@ -1,5 +1,3 @@
-import MaskedView from "@react-native-masked-view/masked-view";
-import { LinearGradient } from "expo-linear-gradient";
 import { useRouter } from "expo-router";
 import {
   Image,
@@ -28,34 +26,16 @@ const COURSES: Course[] = [
 
 function GradientLevelLabel({ text }: { text: string }) {
   return (
-    <MaskedView
-      maskElement={
-        <Text
-          style={{
-            fontFamily: "Pretendard",
-            fontStyle: "normal",
-            fontWeight: "700",
-            fontSize: 27,
-          }}
-        >
-          {text}
-        </Text>
-      }
+    <Text
+      style={{
+        fontFamily: "Pretendard",
+        fontWeight: "700",
+        fontSize: 24,
+        color: "#1C45D6",
+      }}
     >
-      <LinearGradient start={{ x: 0, y: 0.5 }} end={{ x: 1, y: 0.5 }} colors={["#1C45D6", "#007AFF"]}>
-        <Text
-          style={{
-            opacity: 0,
-            fontFamily: "Pretendard",
-            fontStyle: "normal",
-            fontWeight: "700",
-            fontSize: 27,
-          }}
-        >
-          {text}
-        </Text>
-      </LinearGradient>
-    </MaskedView>
+      {text}
+    </Text>
   );
 }
 
@@ -66,6 +46,7 @@ export default function SectorQuizList() {
 
   return (
     <View className="flex-1 bg-white">
+      <ScrollView>
       <View className="px-5 pt-12 flex-row items-center justify-between">
         <TouchableOpacity
           onPress={() => router.replace(MAIN_ROUTE)}
@@ -74,6 +55,7 @@ export default function SectorQuizList() {
           <Image
             source={require("@/assets/images/go-back-icon.png")}
             className="w-[30px] h-[30px]"
+            style={{ width: 30, height: 30 }}
           />
         </TouchableOpacity>
 
@@ -90,11 +72,12 @@ export default function SectorQuizList() {
       </View>
 
       {/* 검색창 */}
-      <View className="px-8 mb-[74px] mt-6">
+      <View className="px-8 mb-[50px] mt-6">
         <View className="flex-row items-center bg-[#F0F2F5] rounded-2xl px-4 py-3">
           <Image
             source={require("@/assets/images/search-icon.png")}
             className="w-5 h-5 mr-2"
+            style={{ width: 20, height: 20 }}
           />
           <TextInput
             placeholder="원하는 섹터를 검색해 보세요!"
@@ -105,24 +88,26 @@ export default function SectorQuizList() {
       </View>
 
       {/* Body */}
-      <ScrollView contentContainerStyle={{ paddingHorizontal: 20, paddingBottom: 32 }}>
         {COURSES.map((c) => (
           <View key={c.id} style={styles.card}>
-            <View className="flex-row items-center justify-between">
+            <View className="flex-row items-center justify-between px-2">
               {/* 텍스트 */}
+              <View>
                 <GradientLevelLabel text={c.title} />
-                {/* 화살표 */}
-                <TouchableOpacity>
-                  <Image
-                    source={require("@/assets/images/blue-next-icon.png")}
-                    className="w-[35px] h-[35px]"
-                    resizeMode="contain"
-                  />
-                </TouchableOpacity>
+              </View>
+              {/* 화살표 */}
+              <TouchableOpacity>
+                <Image
+                  source={require("@/assets/images/blue-next-icon.png")}
+                  className="w-[35px] h-[35px]"
+                  style={{ width: 35, height: 35 }}
+                  resizeMode="contain"
+                />
+              </TouchableOpacity>
             </View>
-                <View className="flex-row flex-wrap justify-between mt-4">
+                <View className="flex-row flex-wrap gap-2 mt-4">
                   {c.tags.map((t, idx) => (
-                    <View key={idx} className="bg-[#F0F2F5] rounded-3xl w-[95px] py-2 items-center">
+                    <View key={idx} className="bg-[#F0F2F5] rounded-3xl w-[90px] py-2 px-1 items-center">
                       <Text className="text-[#3D4D5C] text-[12px] font-semibold"># {t}</Text>
                     </View>
                   ))}
@@ -138,9 +123,9 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "#F6F7F9",
     borderRadius: 24,
-    paddingHorizontal: 30,
-    paddingVertical: 20,
+    paddingHorizontal: 20,
+    paddingVertical: 30,
     marginBottom: 20,
-    marginHorizontal: 10,
+    marginHorizontal: 20,
   },
 });

@@ -49,8 +49,9 @@ function GradientLevelLabel({ text }: { text: string }) {
             fontFamily: "Pretendard",
             fontStyle: "normal",
             fontWeight: "700",
-            fontSize: 27,
+            fontSize: 25,
             lineHeight: 25,
+            color: "#1C45D6",
           }}
         >
           {text}
@@ -64,7 +65,7 @@ function GradientLevelLabel({ text }: { text: string }) {
             fontFamily: "Pretendard",
             fontStyle: "normal",
             fontWeight: "700",
-            fontSize: 27,
+            fontSize: 25,
             lineHeight: 25,
           }}
         >
@@ -123,7 +124,7 @@ export default function QuizList() {
                     <Text className="text-[#1C45D6] font-semibold text-[15px]">{c.progress}%</Text>
                   </View>
                 </View>
-                <Text className="text-[#121217] text-[17px] font-semibold mt-[7px] leading-6">{c.subtitle}</Text>
+                <Text className="text-[#121217] text-[15px] font-semibold mt-[7px] leading-6">{c.subtitle}</Text>
               </View>
               <NextArrowButton 
                 onPress={() => router.push(`/features/quiz/${c.id}`)} 
@@ -150,7 +151,8 @@ const styles = StyleSheet.create({
   card: {
     backgroundColor: "rgba(0,0,0,0.02)",
     borderRadius: 24,
-    padding: 30,
+    paddingHorizontal: 30,
+    paddingVertical: 25,
     marginBottom: 20,
   },
 
