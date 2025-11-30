@@ -19,9 +19,9 @@ export function RankingScreen() {
   };
 
   return (
-    <View className="flex-1 bg-white">
+    <View className="flex-1 bg-white mt-8">
       {/* 검색 아이콘 */}
-      <View className="flex-row justify-end">
+      <View className="flex-row justify-end mr-3">
         <Image
           source={require("@/assets/images/search-icon.png")}
           className="w-6 h-6 mr-6"

@@ -7,7 +7,7 @@ type AppHeaderProps = {
 
 export function AppHeader({ points = 0, onPressNotification }: AppHeaderProps) {
   return (
-    <View className="flex-row items-center justify-between px-4">
+    <View className="flex-row items-center justify-between px-5 pt-9 pb-2">
       {/* 로고 */}
       <Image
         source={require("@/assets/images/logo-text-blue.png")}
@@ -32,7 +32,7 @@ export function AppHeader({ points = 0, onPressNotification }: AppHeaderProps) {
         <Pressable onPress={onPressNotification} className="ml-4">
           <Image
             source={require("@/assets/images/notification-icon.png")}
-            style={{ width: 24, height: 24 }}
+            style={{ width: 20, height: 23 }}
           />
         </Pressable>
       </View>
