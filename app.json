@@ -40,14 +40,13 @@
       "expo-web-browser"
     ],
     "experiments": {
-      "typedRoutes": true,
-      "router": {
-        "showDebugInfo": false,
-        "disabledWarnings": true
-      }
+      "typedRoutes": true
     },
     "extra": {
-      "router": {},
+      "router": {
+        "showDebugInfo": false,
+        "origin": false
+      },
       "eas": {
         "projectId": "fe6000db-e687-4465-8377-f6451aa125b5"
       }
