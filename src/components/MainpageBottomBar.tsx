@@ -1,4 +1,3 @@
-import React from "react";
 import { Image, Pressable, StyleSheet, Text, View } from "react-native";
 
 type Tab = "home" | "ranking" | "community" | "profile";
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
     height: 24,
   },
   label: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontStyle: "normal",
     fontWeight: "800",
     fontSize: 10,

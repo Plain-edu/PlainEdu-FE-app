@@ -1,11 +1,11 @@
-import React, { useMemo, useState } from "react";
+import { useMemo, useState } from "react";
 import {
-    Image,
-    Pressable,
-    StyleSheet,
-    Text,
-    View,
-    ViewStyle,
+  Image,
+  Pressable,
+  StyleSheet,
+  Text,
+  View,
+  ViewStyle,
 } from "react-native";
 
 type Props = {
@@ -87,7 +87,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 20,
   },
   label: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "600",
     fontSize: 17,
     color: "#3D4D5C",
@@ -115,7 +115,7 @@ const styles = StyleSheet.create({
     elevation: 2,
   },
   dayText: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "600",
     fontSize: 15,
     color: "#3D4D5C",

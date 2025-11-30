@@ -25,13 +25,13 @@ export function InvestTab() {
         <View className="mt-3 w-11/12 flex-row items-center justify-between px-5">
           <View className="flex-row items-center gap-3">
             <Text
-              style={{ fontFamily: "Pretendard" }}
+              style={{ fontFamily: "PretendardSemiBold" }}
               className="font-bold text-[20px] leading-[25px] text-[#121217]"
             >
               보유 총 자산
             </Text>
             <Text
-              style={{ color: changeColor, fontFamily: "Pretendard" }}
+              style={{ color: changeColor, fontFamily: "PretendardSemiBold" }}
               className="font-bold text-[16px] leading-5 mr-2"
             >
               {`${sign}${FALLBACK.changePct.toFixed(2)}%`}
@@ -54,7 +54,7 @@ export function InvestTab() {
             return (
               <Pressable key={t.key} onPress={() => setActive(t.key)} className="mr-4">
                 <Text
-                  style={{ fontFamily: "Pretendard", fontSize: 20 }}
+                  style={{ fontFamily: "PretendardSemiBold", fontSize: 20 }}
                   className={
                     selected
                       ? "font-extrabold text-[20px] text-[#121217]"  // 선택 탭 강조
@@ -126,19 +126,19 @@ function Row({ item }: { item: Top10Item }) {
         })
       }
     >
-      <Text style={{ fontFamily: "Pretendard" }} className="w-6 text-[16px] font-extrabold text-[#121217]">
+      <Text style={{ fontFamily: "PretendardSemiBold" }} className="w-6 text-[16px] font-extrabold text-[#121217]">
         {item.rank}
       </Text>
       <View className="flex-1 flex-row items-center justify-between">
-        <Text style={{ fontFamily: "Pretendard" }} className="flex-1 mr-2 text-[13px] font-bold text-[#121217]" numberOfLines={1}>
+        <Text style={{ fontFamily: "PretendardSemiBold" }} className="flex-1 mr-2 text-[13px] font-bold text-[#121217]" numberOfLines={1}>
           {item.name}
         </Text>
-        <Text style={{ fontFamily: "Pretendard" }} className="mr-3 text-[13px] font-semibold text-[#121217]">
+        <Text style={{ fontFamily: "PretendardSemiBold" }} className="mr-3 text-[13px] font-semibold text-[#121217]">
           {price}
         </Text>
       </View>
       <View className="px-2 py-1 rounded-full" style={{ backgroundColor: pillBg }}>
-        <Text style={{ fontFamily: "Pretendard" }} className="text-white text-[12px] font-extrabold">
+        <Text style={{ fontFamily: "PretendardSemiBold" }} className="text-white text-[12px] font-extrabold">
           {`${sign}${item.changePct.toFixed(2)}%`}
         </Text>
       </View>

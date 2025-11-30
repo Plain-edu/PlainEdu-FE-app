@@ -15,11 +15,10 @@ export function QuizCard({ title, description, buttonText, onPress, style }: Pro
   return (
     <View style={[styles.card, style]}>
       
-      {/* 제목 (SVG 제거 → 단색 Text 적용) */}
       <View style={{ height: 32, justifyContent: "center" }}>
         <Text
           style={{
-            fontFamily: "Pretendard",
+            fontFamily: "PretendardSemiBold",
             fontWeight: "700",
             fontSize: 24,
             lineHeight: 25,
@@ -80,7 +79,7 @@ const styles = StyleSheet.create({
   },
 
   title: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "700",
     fontSize: 24,
     lineHeight: 25,
@@ -89,7 +88,7 @@ const styles = StyleSheet.create({
   descBlock: { marginTop: 26 },
 
   descLine: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "600",
     fontSize: 17,
     lineHeight: 26,
@@ -102,7 +101,7 @@ const styles = StyleSheet.create({
   },
 
   desc: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "600",
     fontSize: 17,
     lineHeight: 26,
@@ -131,7 +130,7 @@ const styles = StyleSheet.create({
 
   buttonText: {
     color: "white",
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "700",
     fontSize: 17,
     lineHeight: 25,

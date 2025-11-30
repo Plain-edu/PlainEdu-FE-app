@@ -89,7 +89,7 @@ export function MainScreen() {
 
 const styles = StyleSheet.create({
   tabLabel: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontStyle: "normal",
     fontWeight: "600",
     fontSize: 20,
@@ -110,6 +110,7 @@ const styles = StyleSheet.create({
     paddingHorizontal: 24,
   },
   placeholderTitle: {
+    fontFamily: "PretendardSemiBold",
     fontSize: 20,
     fontWeight: "700",
     color: "#121217",

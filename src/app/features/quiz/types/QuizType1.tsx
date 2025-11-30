@@ -59,7 +59,7 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
         <Text className="text-lg font-bold mb-5">{quiz.question}</Text>
         <Text className="text-gray-500 mb-7">정답을 선택해주세요!</Text>
 
-        <ScrollView className="flex-1">
+        <ScrollView className="flex-1" style={{ backgroundColor: "#fff" }}>
           {quiz.options.map((opt, idx) => (
             <TouchableOpacity
               key={idx}

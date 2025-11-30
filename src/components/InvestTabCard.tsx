@@ -79,19 +79,19 @@ const styles = StyleSheet.create({
     marginBottom: 20,
   },
   title: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "700",
     fontSize: 15,
     color: "#3D4D5C",
   },
   price: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "700",
     fontSize: 25,
     color: "#3D4D5C",
   },
   change: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontWeight: "700",
     fontSize: 15,
     marginTop: 2,

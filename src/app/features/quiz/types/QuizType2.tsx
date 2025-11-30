@@ -1,14 +1,6 @@
 import type { QuizOX } from "@/src/constants/quiz/types";
 import { useState } from "react";
-import {
-  Image,
-  Modal,
-  Pressable,
-  StyleSheet,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
+import { Image, Modal, Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
 type Props = {
   quiz: QuizOX;
@@ -58,37 +50,39 @@ export default function QuizType2({ quiz, onNext, progress }: Props) {
       <Text className="text-gray-500 mb-6">정답을 선택해주세요!</Text>
 
       {/* OX 버튼 */}
-      <View className="flex-row justify-center space-x-2 mb-10">
-        {/* O 버튼 */}
-        <TouchableOpacity onPress={() => setSelected("O")} activeOpacity={0.7}>
-          <View style={styles.imageWrapper}>
-            <Image
-              source={
-                selected === "O"
-                  ? require("@/assets/images/selected-o-button.png")
-                  : require("@/assets/images/o-button.png")
-              }
-              style={selected === "O" ? styles.selectedImage : styles.image}
-              resizeMode="contain"
-            />
-          </View>
-        </TouchableOpacity>
+      <ScrollView className="flex-1" style={{ backgroundColor: "#fff" }}>
+        <View className="flex-row justify-center space-x-2 mb-10">
+          {/* O 버튼 */}
+          <TouchableOpacity onPress={() => setSelected("O")} activeOpacity={0.7}>
+            <View style={styles.imageWrapper}>
+              <Image
+                source={
+                  selected === "O"
+                    ? require("@/assets/images/selected-o-button.png")
+                    : require("@/assets/images/o-button.png")
+                }
+                style={selected === "O" ? styles.selectedImage : styles.image}
+                resizeMode="contain"
+              />
+            </View>
+          </TouchableOpacity>
 
-        {/* X 버튼 */}
-        <TouchableOpacity onPress={() => setSelected("X")} activeOpacity={0.7}>
-          <View style={styles.imageWrapper}>
-            <Image
-              source={
-                selected === "X"
-                  ? require("@/assets/images/selected-x-button.png")
-                  : require("@/assets/images/x-button.png")
-              }
-              style={selected === "X" ? styles.selectedImage : styles.image}
-              resizeMode="contain"
-            />
-          </View>
-        </TouchableOpacity>
-      </View>
+          {/* X 버튼 */}
+          <TouchableOpacity onPress={() => setSelected("X")} activeOpacity={0.7}>
+            <View style={styles.imageWrapper}>
+              <Image
+                source={
+                  selected === "X"
+                    ? require("@/assets/images/selected-x-button.png")
+                    : require("@/assets/images/x-button.png")
+                }
+                style={selected === "X" ? styles.selectedImage : styles.image}
+                resizeMode="contain"
+              />
+            </View>
+          </TouchableOpacity>
+        </View>
+      </ScrollView>
 
       {/* 다음 버튼 */}
       <TouchableOpacity

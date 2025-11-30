@@ -77,7 +77,7 @@ export function MainScreen() {
 
 const styles = StyleSheet.create({
   tabLabel: {
-    fontFamily: "Pretendard",
+    fontFamily: "PretendardSemiBold",
     fontStyle: "normal",
     fontWeight: "600",
     fontSize: 20,

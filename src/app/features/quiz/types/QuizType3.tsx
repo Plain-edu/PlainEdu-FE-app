@@ -1,14 +1,6 @@
 import type { QuizColorMatch } from "@/src/constants/quiz/types";
 import { useState } from "react";
-import {
-  Image,
-  Modal,
-  Pressable,
-  Text,
-  TouchableOpacity,
-  View,
-} from "react-native";
-import { ScrollView } from "react-native-gesture-handler";
+import { Image, Modal, Pressable, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
 type Props = { quiz: QuizColorMatch; onNext?: () => void; progress: number };
 
@@ -81,7 +73,6 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
 
   return (
     <>
-      <ScrollView style={{ backgroundColor: "#fff" }}>
       <View className="flex-1 bg-white px-8 pt-9 pb-6 relative">
         {/* 상단 닫기 버튼 */}
         <TouchableOpacity className="mb-6">
@@ -100,56 +91,58 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
         <Text className="text-gray-500 mb-4">같은 색으로 정답을 연결해주세요!</Text>
 
         {/* 문제 박스 리스트 */}
-        <View className="flex-grow justify-start space-y-6 mt-2">
-          {quiz.leftItems.map((left, idx) => {
-            const right = quiz.rightItems[idx];
-            const leftColor = getColorOfBox("left", idx);
-            const rightColor = getColorOfBox("right", idx);
+        <ScrollView style={{ backgroundColor: "#fff" }}>
+          <View className="flex-grow justify-start space-y-6 mt-2">
+            {quiz.leftItems.map((left, idx) => {
+              const right = quiz.rightItems[idx];
+              const leftColor = getColorOfBox("left", idx);
+              const rightColor = getColorOfBox("right", idx);
 
-            return (
-              <View
-                key={idx}
-                className="flex-row items-center justify-between mb-3"
-              >
-                {/* 왼쪽 박스 */}
-                <TouchableOpacity
-                  onPress={() => handlePress("left", idx)}
-                  style={{
-                    borderWidth: 2,
-                    borderColor: leftColor || "#d1d5db",
-                    backgroundColor: "#fff",
-                    borderRadius: 12,
-                    paddingVertical: 14,
-                    paddingHorizontal: 10,
-                    width: 110,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
+              return (
+                <View
+                  key={idx}
+                  className="flex-row items-center justify-between mb-3"
                 >
-                  <Text className="text-xs font-semibold">{left}</Text>
-                </TouchableOpacity>
+                  {/* 왼쪽 박스 */}
+                  <TouchableOpacity
+                    onPress={() => handlePress("left", idx)}
+                    style={{
+                      borderWidth: 2,
+                      borderColor: leftColor || "#d1d5db",
+                      backgroundColor: "#fff",
+                      borderRadius: 12,
+                      paddingVertical: 14,
+                      paddingHorizontal: 10,
+                      width: 110,
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Text className="text-xs font-semibold">{left}</Text>
+                  </TouchableOpacity>
 
-                {/* 오른쪽 박스 */}
-                <TouchableOpacity
-                  onPress={() => handlePress("right", idx)}
-                  style={{
-                    borderWidth: 2,
-                    borderColor: rightColor || "#d1d5db",
-                    backgroundColor: "#fff",
-                    borderRadius: 12,
-                    paddingVertical: 14,
-                    paddingHorizontal: 10,
-                    width: 170,
-                    alignItems: "center",
-                    justifyContent: "center",
-                  }}
-                >
-                  <Text className="text-xs">{right}</Text>
-                </TouchableOpacity>
-              </View>
-            );
-          })}
-        </View>
+                  {/* 오른쪽 박스 */}
+                  <TouchableOpacity
+                    onPress={() => handlePress("right", idx)}
+                    style={{
+                      borderWidth: 2,
+                      borderColor: rightColor || "#d1d5db",
+                      backgroundColor: "#fff",
+                      borderRadius: 12,
+                      paddingVertical: 14,
+                      paddingHorizontal: 10,
+                      width: 170,
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Text className="text-xs">{right}</Text>
+                  </TouchableOpacity>
+                </View>
+              );
+            })}
+          </View>
+        </ScrollView>
 
         {/* 하단 버튼 */}
         <View className="mt-12">
@@ -276,7 +269,6 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
           </Pressable>
         </Modal>
       </View>
-      </ScrollView>
     </>
   );
 }

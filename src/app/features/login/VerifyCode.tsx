@@ -173,6 +173,7 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   inputFilled: {
+    fontFamily: "PretendardSemiBold",
     flex: 1,
     borderRadius: 10,
     backgroundColor: "#F8F8F8",
@@ -187,6 +188,7 @@ const styles = StyleSheet.create({
     borderWidth: 2,
     borderColor: "#F0F2F5",
     fontSize: 20,
+    fontFamily: "PretendardSemiBold",
     fontWeight: "600",
     color: "#121217",
   },
