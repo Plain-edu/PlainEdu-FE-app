@@ -160,7 +160,7 @@ export default function TermsScreen() {
       </Pressable>
 
       {/* 개별 약관 */}
-      <View className="mt-[22px] mb-[28px]">
+      <View className="mt-[22px] mb-[28px] font-pretendard">
         {renderAgreementItem('Plain edu 서비스 이용약관', true, 'service')}
         {renderAgreementItem('개인정보 처리방침', true, 'privacy')}
         {renderAgreementItem('마케팅 정보 수신 동의', false, 'marketing')}

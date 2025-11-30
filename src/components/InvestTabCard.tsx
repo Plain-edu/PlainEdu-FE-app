@@ -1,4 +1,3 @@
-import React from "react";
 import { Dimensions, FlatList, StyleSheet, Text, View } from "react-native";
 
 type MarketItem = {

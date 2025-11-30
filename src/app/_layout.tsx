@@ -1,3 +1,4 @@
+import { useFonts } from "expo-font";
 import { Stack } from "expo-router";
 import { Platform, StyleSheet, View } from "react-native";
 import { GestureHandlerRootView } from "react-native-gesture-handler";
@@ -5,6 +6,11 @@ import { Provider as PaperProvider, Portal } from "react-native-paper";
 import "./global.css";
 
 export default function RootLayout() {
+
+  const [loaded] = useFonts({
+    Pretendard: require("../../assets/fonts/Pretendard-Regular.ttf"),
+    PretendardBold: require("../../assets/fonts/Pretendard-Bold.ttf"),
+  });
 
   return (
     <GestureHandlerRootView style={{ flex: 1 }}>
