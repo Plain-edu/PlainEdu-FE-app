@@ -6,7 +6,8 @@ import { InvestTab } from "./tabs/InvestTab";
 import { QuizTab } from "./tabs/QuizTab";
 
 export function MainScreen() {
-  const [activeTopTab, setActiveTopTab] = useState<"quiz" | "invest" | "exchange">("quiz");
+  const [activeTopTab, setActiveTopTab] =
+    useState<"quiz" | "invest" | "exchange">("quiz");
 
   const renderContent = () => {
     switch (activeTopTab) {
@@ -20,57 +21,57 @@ export function MainScreen() {
   };
 
   return (
-    <ScrollView>
-    <View className="flex-1 bg-white -mt-[30px]">
+    <View className="flex-1 bg-white">
+      {/* 항상 보여야 하는 헤더 */}
       <AppHeader points={10000} />
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        {/* 상단 탭 */}
+        <View className="flex-row items-center justify-start pt-9 pb-5 px-4">
+          <Pressable onPress={() => setActiveTopTab("quiz")}>
+            <Text
+              style={[
+                styles.tabLabel,
+                { color: activeTopTab === "quiz" ? "#121217" : "#E7E7E7" },
+                activeTopTab === "quiz" && styles.bold,
+              ]}
+            >
+              퀴즈
+            </Text>
+          </Pressable>
 
-      {/* 상단 탭 */}
-      <View className="flex-row items-center justify-start pt-9 pb-5 px-4">
-        <Pressable onPress={() => setActiveTopTab("quiz")}>
-          <Text
-            style={[
-              styles.tabLabel,
-              { color: activeTopTab === "quiz" ? "#121217" : "#E7E7E7" },
-              activeTopTab === "quiz" && styles.bold,
-            ]}
-          >
-            퀴즈
-          </Text>
-        </Pressable>
+          <Text style={styles.separator}>|</Text>
 
-        <Text style={styles.separator}>|</Text>
+          <Pressable onPress={() => setActiveTopTab("invest")}>
+            <Text
+              style={[
+                styles.tabLabel,
+                { color: activeTopTab === "invest" ? "#121217" : "#E7E7E7" },
+                activeTopTab === "invest" && styles.bold,
+              ]}
+            >
+              투자
+            </Text>
+          </Pressable>
 
-        <Pressable onPress={() => setActiveTopTab("invest")}>
-          <Text
-            style={[
-              styles.tabLabel,
-              { color: activeTopTab === "invest" ? "#121217" : "#E7E7E7" },
-              activeTopTab === "invest" && styles.bold,
-            ]}
-          >
-            투자
-          </Text>
-        </Pressable>
+          <Text style={styles.separator}>|</Text>
 
-        <Text style={styles.separator}>|</Text>
+          <Pressable onPress={() => setActiveTopTab("exchange")}>
+            <Text
+              style={[
+                styles.tabLabel,
+                { color: activeTopTab === "exchange" ? "#121217" : "#E7E7E7" },
+                activeTopTab === "exchange" && styles.bold,
+              ]}
+            >
+              교환소
+            </Text>
+          </Pressable>
+        </View>
 
-        <Pressable onPress={() => setActiveTopTab("exchange")}>
-          <Text
-            style={[
-              styles.tabLabel,
-              { color: activeTopTab === "exchange" ? "#121217" : "#E7E7E7" },
-              activeTopTab === "exchange" && styles.bold,
-            ]}
-          >
-            교환소
-          </Text>
-        </Pressable>
-      </View>
-
-      {/* 탭별 컨텐츠 */}
-      <View style={{ flex: 1 }}>{renderContent()}</View>
+        {/* 아래 스크롤 영역 */}
+          {renderContent()}
+      </ScrollView>
     </View>
-    </ScrollView>
   );
 }
 
@@ -89,22 +90,5 @@ const styles = StyleSheet.create({
   },
   bold: {
     fontWeight: "700",
-  },
-  center: {
-    flex: 1,
-    alignItems: "center",
-    justifyContent: "center",
-    paddingHorizontal: 24,
-  },
-  placeholderTitle: {
-    fontSize: 20,
-    fontWeight: "700",
-    color: "#121217",
-    marginBottom: 8,
-  },
-  placeholderDesc: {
-    fontSize: 14,
-    color: "#8E8E93",
-    textAlign: "center",
   },
 });
