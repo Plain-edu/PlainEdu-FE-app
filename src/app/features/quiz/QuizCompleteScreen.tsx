@@ -1,13 +1,22 @@
-import { useRouter } from "expo-router";
+import { useLocalSearchParams, useRouter } from "expo-router";
 import { Text, TouchableOpacity, View } from "react-native";
 
 export default function QuizCompleteScreen() {
   const router = useRouter();
 
+  // ★ 방금 풀었던 레벨 받기 (lv-1, lv-2, lv-3)
+  const { level } = useLocalSearchParams<{ level: string }>();
+
+  // ★ level undefined 방지
+  const currentLevel = level ?? "lv-1";
+
   return (
     <View className="flex-1 bg-white px-8 pt-12">
       {/* 상단 닫기 버튼 */}
-      <TouchableOpacity onPress={() => router.replace("/features/mainpage/App")} className="mb-6">
+      <TouchableOpacity 
+        onPress={() => router.replace("/features/mainpage/App")} 
+        className="mb-6"
+      >
         <Text className="text-2xl">✕</Text>
       </TouchableOpacity>
 
@@ -24,7 +33,12 @@ export default function QuizCompleteScreen() {
 
       {/* 하단 버튼 */}
       <TouchableOpacity
-        onPress={() => router.replace("/features/mainpage/App")}
+        onPress={() =>
+          router.replace({
+            pathname: "/features/quiz/[level]",
+            params: { level: currentLevel }, // ★ 여기서 레벨로 이동
+          })
+        }
         activeOpacity={0.8}
         className="bg-blue-500 py-4 rounded-full mb-12 items-center"
         style={{

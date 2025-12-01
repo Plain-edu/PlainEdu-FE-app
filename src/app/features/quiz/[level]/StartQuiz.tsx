@@ -1,7 +1,7 @@
 import { QUIZ_DATA } from "@/src/constants/quiz";
 import type { QuizColorMatch, QuizMulti, QuizOX } from "@/src/constants/quiz/types";
 import { useLocalSearchParams, useRouter } from "expo-router";
-import React, { useMemo, useRef, useState } from "react";
+import { useMemo, useRef, useState } from "react";
 import { Text, View } from "react-native";
 import QuizType1 from "../types/QuizType1";
 import QuizType2 from "../types/QuizType2";
@@ -44,7 +44,10 @@ export default function StartQuizScreen() {
     if (currentIndex < selectedQuizzes.length - 1) {
       setCurrentIndex((prev) => prev + 1);
     } else {
-      router.push("/features/quiz/QuizCompleteScreen");
+      router.push({
+        pathname: "/features/quiz/QuizCompleteScreen",
+        params: { level: safeLevel },
+      });
     }
   };
 
@@ -56,18 +59,21 @@ export default function StartQuizScreen() {
       return (
         <QuizType1
           {...(props as { quiz: QuizMulti; onNext: () => void; progress: number })}
+          level={safeLevel}
         />
       );
     case "OX":
       return (
         <QuizType2
           {...(props as { quiz: QuizOX; onNext: () => void; progress: number })}
+          level={safeLevel}
         />
       );
     case "COLOR":
       return (
         <QuizType3
           {...(props as { quiz: QuizColorMatch; onNext: () => void; progress: number })}
+          level={safeLevel}
         />
       );
     default:

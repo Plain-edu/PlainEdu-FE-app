@@ -1,3 +1,4 @@
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Image, Modal, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
@@ -18,9 +19,12 @@ type Props = {
   quiz: QuizMulti;
   onNext?: () => void;
   progress: number;
+  level: "lv-1" | "lv-2" | "lv-3";   // ★ 레벨 추가
 };
 
-export default function QuizType1({ quiz, onNext, progress }: Props) {
+export default function QuizType1({ quiz, onNext, progress, level }: Props) {
+  const router = useRouter();
+
   const [selected, setSelected] = useState<number | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
@@ -45,10 +49,16 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
   return (
     <>
       <View className="flex-1 bg-white px-8 pt-9 relative">
-        <TouchableOpacity className="mb-6">
+        
+        {/* ★ X 버튼: 문제 선택 페이지로 되돌아가기 */}
+        <TouchableOpacity
+          className="mb-6"
+          onPress={() => router.replace(`/features/quiz/${level}`)}
+        >
           <Text className="text-2xl">✕</Text>
         </TouchableOpacity>
 
+        {/* 진행바 */}
         <View className="h-2 w-full bg-gray-200 rounded-full mb-6 overflow-hidden">
           <View
             style={{ width: `${progress * 100}%` }}
@@ -59,7 +69,7 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
         <Text className="text-lg font-bold mb-5">{quiz.question}</Text>
         <Text className="text-gray-500 mb-7">정답을 선택해주세요!</Text>
 
-        <ScrollView className="flex-1" style={{ backgroundColor: "#fff" }}>
+        <ScrollView className="flex-1">
           {quiz.options.map((opt, idx) => (
             <TouchableOpacity
               key={idx}
@@ -79,6 +89,7 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
           ))}
         </ScrollView>
 
+        {/* 다음 버튼 */}
         <TouchableOpacity
           activeOpacity={0.8}
           onPress={handleNext}
@@ -87,16 +98,15 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
           <Text className="text-white text-base font-bold">다음</Text>
         </TouchableOpacity>
 
-        {/* React Native Modal로 교체 */}
+        {/* 모달 */}
         <Modal
           visible={showModal}
           transparent
           animationType="fade"
           onRequestClose={() => setShowModal(false)}
         >
-          {/* 반투명 배경 */}
           <View style={{ flex: 1, backgroundColor: "rgba(0,0,0,0.5)" }}>
-            {/* 코인 + 포인트 텍스트 (상단 레이어) */}
+            
             {isCorrect && (
               <View
                 style={{
@@ -122,13 +132,7 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
               </View>
             )}
 
-            {/* 하단 흰색 모달 박스 */}
-            <View
-              style={{
-                flex: 1,
-                justifyContent: "flex-end",
-              }}
-            >
+            <View style={{ flex: 1, justifyContent: "flex-end" }}>
               <View
                 style={{
                   backgroundColor: "white",
@@ -179,8 +183,11 @@ export default function QuizType1({ quiz, onNext, progress }: Props) {
                         />
                       </TouchableOpacity>
                     </View>
+
                     {quiz.explanation && (
-                      <Text className="text-gray-500 text-sm leading-6">{quiz.explanation}</Text>
+                      <Text className="text-gray-500 text-sm leading-6">
+                        {quiz.explanation}
+                      </Text>
                     )}
                   </>
                 )}
