@@ -1,0 +1,90 @@
+import { QuizItem } from "../types";
+
+export const LV1_MARKET_TIME: QuizItem[] = [
+  {
+    id: "lv1-market-time-1",
+    level: "lv-1",
+    topic: "주식시장 거래 시간",
+    topicIndex: 12,
+    type: "OX",
+    question: "주식시장의 본장 거래 시간은 오전 9시부터 오후 3시 30분까지다.",
+    answer: "O",
+    explanation: "본장(정규시장)은 9시~15시 30분 동안 운영된다.",
+  },
+  {
+    id: "lv1-market-time-2",
+    level: "lv-1",
+    topic: "주식시장 거래 시간",
+    topicIndex: 12,
+    type: "OX",
+    question: "장후 시간외 거래는 시장에서 형성된 변동 가격으로 거래된다.",
+    answer: "X",
+    explanation: "장후 시간외 거래는 당일 종가로만 거래된다.",
+  },
+  {
+    id: "lv1-market-time-3",
+    level: "lv-1",
+    topic: "주식시장 거래 시간",
+    topicIndex: 12,
+    type: "MULTI",
+    question: "장전 동시호가 시간대에 맞는 설명은?",
+    options: [
+      "거래가 실시간으로 체결되는 시간",
+      "시초가를 결정하기 위해 주문을 모으는 시간",
+      "장 종료 후 종가로 거래하는 시간",
+    ],
+    answer: "시초가를 결정하기 위해 주문을 모으는 시간",
+    explanation:
+      "장전 동시호가(8:30~9:00)는 주문을 모아 시초가를 산출한다.",
+  },
+  {
+    id: "lv1-market-time-4",
+    level: "lv-1",
+    topic: "주식시장 거래 시간",
+    topicIndex: 12,
+    type: "MULTI",
+    question: "시간외 단일가 매매의 체결 방식은?",
+    options: ["주문 즉시 체결", "10분 단위로 일괄 체결", "하루 1회 종가로 체결"],
+    answer: "10분 단위로 일괄 체결",
+    explanation:
+      "시간외 단일가 매매는 10분 단위로 주문을 모아 체결한다.",
+  },
+  {
+    id: "lv1-market-time-5",
+    level: "lv-1",
+    topic: "주식시장 거래 시간",
+    topicIndex: 12,
+    type: "COLOR",
+    question: "단어와 뜻을 연결해보세요!",
+    leftItems: ["장전 동시호가", "본장 거래", "장후 시간외"],
+    rightItems: [
+      "시초가를 결정하는 시간",
+      "9시~15시 30분 실시간 거래",
+      "종가로 거래하는 시간",
+    ],
+    answer: {
+      "장전 동시호가": "시초가를 결정하는 시간",
+      "본장 거래": "9시~15시 30분 실시간 거래",
+      "장후 시간외": "종가로 거래하는 시간",
+    },
+  },
+  {
+    id: "lv1-market-time-6",
+    level: "lv-1",
+    topic: "주식시장 거래 시간",
+    topicIndex: 12,
+    type: "COLOR",
+    question: "단어와 뜻을 연결해보세요!",
+    leftItems: ["장전 시간외", "시간외 단일가", "장후 시간외"],
+    rightItems: [
+      "장 시작 전 고정 가격으로 거래",
+      "10분마다 모아 체결",
+      "종가 기준 거래",
+    ],
+    answer: {
+      "장전 시간외": "장 시작 전 고정 가격으로 거래",
+      "시간외 단일가": "10분마다 모아 체결",
+      "장후 시간외": "종가 기준 거래",
+    },
+  },
+];

@@ -19,7 +19,7 @@ type Props = {
   quiz: QuizMulti;
   onNext?: () => void;
   progress: number;
-  level: "lv-1" | "lv-2" | "lv-3";   // ★ 레벨 추가
+  level: "lv-1" | "lv-2" | "lv-3";
 };
 
 export default function QuizType1({ quiz, onNext, progress, level }: Props) {
@@ -50,7 +50,7 @@ export default function QuizType1({ quiz, onNext, progress, level }: Props) {
     <>
       <View className="flex-1 bg-white px-8 pt-9 relative">
         
-        {/* ★ X 버튼: 문제 선택 페이지로 되돌아가기 */}
+        {/* X 버튼: 문제 선택 페이지로 되돌아가기 */}
         <TouchableOpacity
           className="mb-6"
           onPress={() => router.replace(`/features/quiz/${level}`)}
