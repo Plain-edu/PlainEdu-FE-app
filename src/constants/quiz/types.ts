@@ -1,10 +1,8 @@
-// src/constants/quiz/types.ts
-
 export type QuizBase = {
   id: string;
   level: "lv-1" | "lv-2" | "lv-3";
   topic: string; // 예: "주식이란?", "지수의 종류 1편"
-  topicIndex: number; // ✅ 주제 구분을 위한 인덱스 추가
+  topicIndex: number; // 주제 구분을 위한 인덱스 추가
   type: "MULTI" | "OX" | "COLOR";
 };
 

@@ -1,14 +1,19 @@
 import type { QuizOX } from "@/src/constants/quiz/types";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Image, Modal, Pressable, ScrollView, StyleSheet, Text, TouchableOpacity, View } from "react-native";
 
+// ★ 1) Props 타입 확장: level 추가
 type Props = {
   quiz: QuizOX;
   onNext?: () => void;
   progress: number;
+  level: "lv-1" | "lv-2" | "lv-3"; 
 };
 
-export default function QuizType2({ quiz, onNext, progress }: Props) {
+export default function QuizType2({ quiz, onNext, progress, level }: Props) {
+  const router = useRouter(); // ★ 추가
+
   const [selected, setSelected] = useState<"O" | "X" | null>(null);
   const [showModal, setShowModal] = useState(false);
   const [isCorrect, setIsCorrect] = useState<boolean | null>(null);
@@ -32,8 +37,12 @@ export default function QuizType2({ quiz, onNext, progress }: Props) {
 
   return (
     <View className="flex-1 bg-white px-8 pt-9 relative">
-      {/* 상단 닫기 버튼 */}
-      <TouchableOpacity className="mb-6">
+
+      {/* ★ 3) X 버튼 수정 — 난이도별 퀴즈 선택 목록으로 이동 */}
+      <TouchableOpacity
+        className="mb-6"
+        onPress={() => router.replace(`/features/quiz/${level}`)}
+      >
         <Text className="text-2xl">✕</Text>
       </TouchableOpacity>
 

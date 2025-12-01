@@ -1,13 +1,22 @@
 import type { QuizColorMatch } from "@/src/constants/quiz/types";
+import { useRouter } from "expo-router";
 import { useState } from "react";
 import { Image, Modal, Pressable, ScrollView, Text, TouchableOpacity, View } from "react-native";
 
-type Props = { quiz: QuizColorMatch; onNext?: () => void; progress: number };
+// ★ 1) Props 타입에 level 추가
+type Props = { 
+  quiz: QuizColorMatch; 
+  onNext?: () => void; 
+  progress: number;
+  level: "lv-1" | "lv-2" | "lv-3"; 
+};
 
 type BoxSide = "left" | "right";
 type Pair = { color: string; left: number | null; right: number | null };
 
-export default function QuizType3({ quiz, onNext, progress }: Props) {
+export default function QuizType3({ quiz, onNext, progress, level }: Props) {
+  const router = useRouter(); // ★ 추가
+
   const [pairs, setPairs] = useState<Pair[]>([]);
   const [currentColorIndex, setCurrentColorIndex] = useState(0);
   const [showModal, setShowModal] = useState(false);
@@ -74,8 +83,12 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
   return (
     <>
       <View className="flex-1 bg-white px-8 pt-9 pb-6 relative">
-        {/* 상단 닫기 버튼 */}
-        <TouchableOpacity className="mb-6">
+
+        {/* ★ 3) 닫기(X) 버튼 수정: 선택했던 레벨 페이지로 돌아가기 */}
+        <TouchableOpacity 
+          className="mb-6"
+          onPress={() => router.replace(`/features/quiz/${level}`)}
+        >
           <Text className="text-2xl">✕</Text>
         </TouchableOpacity>
 
@@ -155,6 +168,7 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
           </TouchableOpacity>
         </View>
 
+        {/* 모달 */}
         <Modal
           visible={showModal}
           transparent
@@ -198,7 +212,7 @@ export default function QuizType3({ quiz, onNext, progress }: Props) {
               </View>
             )}
 
-            {/* 하단 흰색 모달 카드 */}
+            {/* 하단 흰색 모달 */}
             <View
               style={{
                 backgroundColor: "white",
