@@ -18,8 +18,7 @@ export function QuizCard({ title, description, buttonText, onPress, style }: Pro
       <View style={{ height: 32, justifyContent: "center" }}>
         <Text
           style={{
-            fontFamily: "PretendardSemiBold",
-            fontWeight: "700",
+            fontFamily: "PretendardBold",
             fontSize: 24,
             lineHeight: 25,
             color: "#1C45D6",
