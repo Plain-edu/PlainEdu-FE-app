@@ -23,25 +23,24 @@ export default function VideoScreen() {
   };
 
   const handleSkip = async () => {
-    await stopVideo(); // ⭐ 이동 전에 영상 재생 완전히 종료
+    await stopVideo(); // 이동 전에 영상 재생 완전히 종료
     router.push(`/features/quiz/${level}/StartQuiz?index=${index}`);
   };
 
   return (
-    <View className="flex-1 bg-white relative">
-      {/* ⭐ Video Wrapper */}
+    <View className="flex-1 bg-black relative">
+      {/* Video Wrapper */}
       <View style={{ flex: 1, justifyContent: "center", alignItems: "center", width: "100%" }}>
         <Video
           ref={videoRef}
-          source={{ uri: "https://www.w3schools.com/html/mov_bbb.mp4" }}
+          source={require("@/assets/videos/reels.mp4")}
           rate={1.0}
           volume={1.0}
           resizeMode={ResizeMode.CONTAIN}
           shouldPlay
           style={{
-            width: "80%",
-            maxWidth: 600,
-            height: 300,
+            width: "100%",
+            height: "100%",
           }}
           onPlaybackStatusUpdate={async (status) => {
             if (status.isLoaded && status.didJustFinish) {
@@ -52,7 +51,7 @@ export default function VideoScreen() {
       </View>
 
       {/* 오른쪽 버튼 영역 */}
-      <View className="absolute right-5 top-1/3 items-center justify-center">
+      <View className="absolute right-3 top-1/3 pb-3 items-center justify-center rounded-xl" style={{ backgroundColor: "rgba(255,255,255,0.7)" }}>
         <TouchableOpacity onPress={handleSkip} activeOpacity={0.7} className="items-center mb-1">
           <Image source={require("@/assets/images/skip-icon.png")} style={{ width: 45, height: 45 }} />
           <Text className="text-[8px] font-extrabold text-black -mt-2">건너뛰기</Text>
@@ -73,10 +72,14 @@ export default function VideoScreen() {
           activeOpacity={0.7}
           className="items-center"
         >
-          <Image
-            source={require("@/assets/images/save-icon.png")}
-            style={[{ width: 45, height: 45 }, saved ? { tintColor: "black" } : {}]}
-          />
+        <Image
+          source={
+            saved
+              ? require("@/assets/images/save-after-icon.png")
+              : require("@/assets/images/save-icon.png")
+          }
+          style={{ width: 45, height: 45 }}
+        />
           <Text className="text-[8px] font-extrabold text-black -mt-2">저장하기</Text>
         </TouchableOpacity>
       </View>

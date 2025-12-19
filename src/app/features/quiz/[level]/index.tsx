@@ -73,7 +73,12 @@ export default function QuizDetailList() {
     <View className="flex-1 bg-white">
       {/* Header */}
       <View className="px-5 pt-8 mb-12 flex-row items-center justify-between">
-        <TouchableOpacity onPress={() => router.back()} hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}>
+        <TouchableOpacity
+          onPress={() =>
+            router.replace("/features/quiz/FinanceQuizList")
+          }
+          hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
+        >
           <Image source={require("@/assets/images/go-back-icon.png")} className="w-[35px] h-[35px]" />
         </TouchableOpacity>
         <View className="flex-row items-center mr-3">
