@@ -67,18 +67,12 @@ export default function VideoScreen() {
           <Text className="text-[8px] font-extrabold text-black -mt-2">15</Text>
         </TouchableOpacity>
 
-        <TouchableOpacity
-          onPress={() => setSaved(!saved)}
-          activeOpacity={0.7}
-          className="items-center"
-        >
+        <TouchableOpacity onPress={() => setSaved(!saved)} activeOpacity={0.7} className="items-center">
         <Image
           source={
-            saved
-              ? require("@/assets/images/save-after-icon.png")
-              : require("@/assets/images/save-icon.png")
+            saved ? require("@/assets/images/save-after-icon.png") : require("@/assets/images/save-icon.png")
           }
-          style={{ width: 45, height: 45 }}
+          style={{ width: 18, height: 18, marginTop: 12, marginBottom: 13, marginLeft: 2 }}
         />
           <Text className="text-[8px] font-extrabold text-black -mt-2">저장하기</Text>
         </TouchableOpacity>
